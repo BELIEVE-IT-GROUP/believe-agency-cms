@@ -2,6 +2,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
+import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
@@ -51,6 +52,25 @@ export default buildConfig({
   }),
 
   plugins: [
+    s3Storage({
+      collections: {
+        media: {
+          prefix: 'agency-cms/media',
+          generateFileURL: ({ filename, prefix }) =>
+            `${process.env.R2_PUBLIC_URL}/${prefix}/${filename}`,
+        },
+      },
+      bucket: process.env.R2_BUCKET!,
+      config: {
+        credentials: {
+          accessKeyId: process.env.R2_ACCESS_KEY_ID!,
+          secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
+        },
+        region: 'auto',
+        endpoint: process.env.R2_ENDPOINT!,
+      },
+    }),
+
     multiTenantPlugin({
       collections: {
         pages: {},
