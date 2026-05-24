@@ -14,9 +14,14 @@ ENV NODE_ENV=development
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Generate Payload import map so admin chunks are properly isolated
+ARG DATABASE_URI
+ARG PAYLOAD_SECRET
+ENV DATABASE_URI=$DATABASE_URI
+ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
+RUN node node_modules/.bin/payload generate:importmap || true
 # Limit workers to avoid EAGAIN on constrained VPS
-RUN ulimit -n 65536 2>/dev/null || true && \
-    node node_modules/.bin/next build
+RUN node node_modules/.bin/next build
 
 FROM base AS runner
 WORKDIR /app
