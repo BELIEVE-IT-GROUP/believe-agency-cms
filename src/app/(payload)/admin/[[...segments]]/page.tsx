@@ -3,8 +3,8 @@ import type { SanitizedConfig } from 'payload'
 import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
 import { importMap } from '../../importMap'
 
-// Payload v3 expects a Promise that resolves to the config module
-const configPromise = import('@payload-config') as unknown as Promise<SanitizedConfig>
+// Payload v3 RootPage expects a Promise<SanitizedConfig> — extract default export from module
+const configPromise = import('@payload-config').then((m) => m.default) as Promise<SanitizedConfig>
 
 type Args = {
   params: Promise<{ segments: string[] }>

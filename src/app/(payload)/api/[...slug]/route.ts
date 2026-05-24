@@ -1,7 +1,7 @@
 import type { SanitizedConfig } from 'payload'
 import { REST_DELETE, REST_GET, REST_OPTIONS, REST_PATCH, REST_POST, REST_PUT } from '@payloadcms/next/routes'
 
-const configPromise = import('@payload-config') as unknown as Promise<SanitizedConfig>
+const configPromise = import('@payload-config').then((m) => m.default) as Promise<SanitizedConfig>
 
 export const GET = REST_GET(configPromise)
 export const POST = REST_POST(configPromise)
