@@ -1,0 +1,19 @@
+src/app/layout.tsx
+  s_35505e6c3f9d06::t_c6a7a8279e6e90 10-13,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "8ac585d44e62484b8415ae103dad7febc1ca825d",
+  "prompts": {},
+  "sessions": {
+    "s_35505e6c3f9d06": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "98583173-117d-4419-98b3-8c71d655ab56",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
