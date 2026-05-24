@@ -1,0 +1,22 @@
+package.json
+  s_23d8f643e8d068::t_8953338406e9f5 34
+next.config.mjs
+  s_23d8f643e8d068::t_fde242bc15c2b0 11
+  s_23d8f643e8d068::t_40eca3a43eaffe 21-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "b17d6815ebe5319ec20f6a7828ae67641b476e2a",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
