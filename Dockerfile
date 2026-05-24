@@ -43,4 +43,5 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-CMD ["node_modules/.bin/next", "start"]
+# Start server, wait for it, call init endpoint to push schema, then keep running
+CMD ["sh", "-c", "node_modules/.bin/next start & SERVER_PID=$!; until curl -sf -H \"x-init-secret: $PAYLOAD_SECRET\" http://localhost:3000/api/init > /tmp/init.log 2>&1; do sleep 2; done; cat /tmp/init.log; wait $SERVER_PID"]
