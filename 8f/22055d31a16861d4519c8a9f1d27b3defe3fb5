@@ -1,0 +1,21 @@
+Dockerfile
+  s_23d8f643e8d068::t_16de8fedf70e92 6-7,13-14,17-18,25-26,29-30,37
+next.config.mjs
+  s_23d8f643e8d068::t_92b8bbee102f70 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "8f22055d31a16861d4519c8a9f1d27b3defe3fb5",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
