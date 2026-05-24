@@ -36,6 +36,8 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.mjs ./next.config.mjs
 COPY --from=builder /app/src ./src
+COPY --from=builder /app/tsconfig.json ./tsconfig.json
+COPY --from=builder /app/init-db.ts ./init-db.ts
 # Copy migrations generated at build time
 COPY --from=builder /app/migrations ./migrations
 
@@ -44,4 +46,5 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-CMD ["node_modules/.bin/next", "start"]
+# Run schema init (pushDevSchema), then start the server
+CMD ["sh", "-c", "node_modules/.bin/tsx init-db.ts; exec node_modules/.bin/next start"]
