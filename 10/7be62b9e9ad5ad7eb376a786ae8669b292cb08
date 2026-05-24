@@ -1,0 +1,21 @@
+src/app/api/init/route.ts
+  s_23d8f643e8d068::t_dd806d4d9b28b1 1-14,17-27
+Dockerfile
+  s_23d8f643e8d068::t_3af1aa31f24f5a 46-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "107be62b9e9ad5ad7eb376a786ae8669b292cb08",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
