@@ -1,0 +1,21 @@
+Dockerfile
+  s_23d8f643e8d068::t_df8946a3a646f0 47
+  s_23d8f643e8d068::t_29b02654bf0c51 18-21
+  s_23d8f643e8d068::t_f611dde4885381 25-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "07674b55682ed98c8a874f9a3654ae7393fd492a",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
