@@ -14,8 +14,9 @@ ENV NODE_ENV=development
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# Generate Payload import map before building
-RUN node node_modules/.bin/next build
+# Limit workers to avoid EAGAIN on constrained VPS
+RUN ulimit -n 65536 2>/dev/null || true && \
+    node node_modules/.bin/next build
 
 FROM base AS runner
 WORKDIR /app
