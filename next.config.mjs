@@ -9,10 +9,14 @@ const nextConfig = {
   },
   serverExternalPackages: ['sharp', '@payloadcms/richtext-lexical'],
   eslint: { ignoreDuringBuilds: true },
-  // Payload admin internals include Html from next/document — skip prerender failures
   webpack: (config, { isServer }) => {
     if (isServer) {
-      config.externals = [...(config.externals || []), 'next/document']
+      // Payload admin chunks use <Html> from next/document outside _document,
+      // which crashes 404 prerender. Mock it with safe no-op equivalents.
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'next/document': new URL('./src/document-mock.js', import.meta.url).pathname,
+      }
     }
     return config
   },
