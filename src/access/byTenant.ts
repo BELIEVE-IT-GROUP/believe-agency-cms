@@ -5,12 +5,9 @@ export const byTenant: Access = ({ req: { user } }) => {
   if (user.roles?.includes('super-admin')) return true
 
   const tenantId = user.lastLoggedInTenant?.id ?? user.lastLoggedInTenant
-
   if (!tenantId) return false
 
-  return {
-    tenant: { equals: tenantId },
-  }
+  return { tenant: { equals: tenantId } }
 }
 
 export const byTenantOrPublished: Access = ({ req: { user } }) => {
@@ -20,9 +17,8 @@ export const byTenantOrPublished: Access = ({ req: { user } }) => {
 
   if (tenantId) {
     return {
-      or: [
+      and: [
         { tenant: { equals: tenantId } },
-        { _status: { equals: 'published' } },
       ],
     }
   }
