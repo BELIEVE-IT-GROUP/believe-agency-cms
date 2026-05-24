@@ -7,10 +7,6 @@ const nextConfig = {
     workerThreads: false,
     cpus: 1,
   },
-  // Skip static generation errors from Payload admin internals
-  typescript: {
-    ignoreBuildErrors: false,
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
