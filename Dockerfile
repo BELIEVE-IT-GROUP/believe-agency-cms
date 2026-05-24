@@ -14,8 +14,7 @@ ARG PAYLOAD_SECRET
 ENV DATABASE_URI=$DATABASE_URI
 ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
 RUN node node_modules/.bin/payload generate:importmap || true
-# Use css-ignore loader so @payloadcms/ui CSS imports don't break the build
-RUN NODE_OPTIONS='--import /app/css-ignore.mjs' node node_modules/.bin/next build
+RUN node node_modules/.bin/next build
 RUN mkdir -p migrations
 
 FROM base AS runner
@@ -46,5 +45,4 @@ ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
 # NODE_ENV=development at runtime so payload's connect() calls pushDevSchema to create tables
-# css-ignore.mjs handles CSS imports from @payloadcms/ui deps
-CMD ["sh", "-c", "NODE_ENV=development NODE_OPTIONS='--import /app/css-ignore.mjs' exec node_modules/.bin/next start"]
+CMD ["sh", "-c", "NODE_ENV=development exec node_modules/.bin/next start"]
