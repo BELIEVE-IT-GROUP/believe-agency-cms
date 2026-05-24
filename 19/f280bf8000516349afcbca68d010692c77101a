@@ -1,0 +1,21 @@
+init-db.ts
+  s_23d8f643e8d068::t_4c0bb9d69fbc2f 1-26
+Dockerfile
+  s_23d8f643e8d068::t_eb344e828af890 39-40,49-50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "19f280bf8000516349afcbca68d010692c77101a",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
