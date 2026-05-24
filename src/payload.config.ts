@@ -29,6 +29,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI!,
     },
+    // Auto-push schema on startup — replace with migrations once stable
+    push: process.env.PAYLOAD_DB_PUSH !== 'false',
   }),
 
   ...(process.env.SMTP_HOST
