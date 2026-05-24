@@ -17,6 +17,17 @@ const nextConfig = {
     '@aws-sdk/client-s3',
   ],
   eslint: { ignoreDuringBuilds: true },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Payload admin chunks use <Html> from next/document which throws outside _document.
+      // Mock it with safe equivalents so the 404/500 prerender doesn't fail.
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'next/document': new URL('./src/document-mock.js', import.meta.url).pathname,
+      }
+    }
+    return config
+  },
   images: {
     remotePatterns: [
       {
