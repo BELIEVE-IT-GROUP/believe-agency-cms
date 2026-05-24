@@ -46,5 +46,4 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# Run schema init (pushDevSchema), then start the server
-CMD ["sh", "-c", "node_modules/.bin/tsx init-db.ts; exec node_modules/.bin/next start"]
+CMD ["node_modules/.bin/next", "start"]
