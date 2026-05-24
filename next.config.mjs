@@ -8,8 +8,13 @@ const nextConfig = {
     cpus: 1,
   },
   serverExternalPackages: ['sharp', '@payloadcms/richtext-lexical'],
-  eslint: {
-    ignoreDuringBuilds: true,
+  eslint: { ignoreDuringBuilds: true },
+  // Payload admin internals include Html from next/document — skip prerender failures
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [...(config.externals || []), 'next/document']
+    }
+    return config
   },
   images: {
     remotePatterns: [
