@@ -1,0 +1,21 @@
+src/app/(payload)/api/[...slug]/route.ts
+  s_23d8f643e8d068::t_abc4bcfd98e19e 4
+src/app/(payload)/admin/[[...segments]]/page.tsx
+  s_23d8f643e8d068::t_3c238e1e194a18 6-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "5f93d47a0a76d7b739edcf40c2f68c730e2bddbc",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
