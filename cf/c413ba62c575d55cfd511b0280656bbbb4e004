@@ -1,0 +1,21 @@
+src/instrumentation.ts
+  s_23d8f643e8d068::t_2212a3244e805b 1-19
+Dockerfile
+  s_23d8f643e8d068::t_7135361fbce6c2 49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "cfc413ba62c575d55cfd511b0280656bbbb4e004",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
