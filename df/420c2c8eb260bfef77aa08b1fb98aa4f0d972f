@@ -1,0 +1,21 @@
+src/app/not-found.tsx
+  s_23d8f643e8d068::t_6dc1dbfc4699a6 1-11
+next.config.mjs
+  s_23d8f643e8d068::t_02a9188ab67cf9 10-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "df420c2c8eb260bfef77aa08b1fb98aa4f0d972f",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
