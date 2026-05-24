@@ -3,11 +3,11 @@ RUN apk add --no-cache libc6-compat python3 make g++
 
 FROM base AS builder
 WORKDIR /app
-# Development NODE_ENV so devDependencies (TypeScript etc.) install
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY package.json ./
-RUN npm install --legacy-peer-deps
+# --include=dev to install TypeScript and other devDependencies needed for build
+RUN npm install --legacy-peer-deps --include=dev
 COPY . .
 ARG DATABASE_URI
 ARG PAYLOAD_SECRET
