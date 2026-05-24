@@ -9,12 +9,12 @@ const nextConfig = {
   serverExternalPackages: [
     'sharp',
     'payload',
-    '@payloadcms/next',
     '@payloadcms/db-postgres',
-    '@payloadcms/richtext-lexical',
     '@payloadcms/plugin-multi-tenant',
     '@payloadcms/storage-s3',
     '@payloadcms/email-nodemailer',
+    'nodemailer',
+    '@aws-sdk/client-s3',
   ],
   eslint: { ignoreDuringBuilds: true },
   webpack: (config, { isServer }) => {
