@@ -19,6 +19,24 @@ export default buildConfig({
     meta: {
       titleSuffix: '— Believe Agency CMS',
     },
+    livePreview: {
+      breakpoints: [
+        { label: 'Mobile', name: 'mobile', width: 375, height: 667 },
+        { label: 'Tablet', name: 'tablet', width: 768, height: 1024 },
+        { label: 'Desktop', name: 'desktop', width: 1440, height: 900 },
+      ],
+      url: ({ data, collectionConfig }) => {
+        const base = process.env.NEXT_PUBLIC_PREVIEW_URL
+        if (!base || !data?.slug) return null
+        if (collectionConfig?.slug === 'pages') {
+          return `${base}/api/preview?collection=pages&slug=${data.slug}`
+        }
+        if (collectionConfig?.slug === 'posts') {
+          return `${base}/api/preview?collection=posts&slug=${data.slug}`
+        }
+        return null
+      },
+    },
   },
 
   collections: [Users, Tenants, Media, Pages, Posts, Categories],
