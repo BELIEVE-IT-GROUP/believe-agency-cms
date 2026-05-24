@@ -6,7 +6,16 @@ const nextConfig = {
     workerThreads: false,
     cpus: 1,
   },
-  serverExternalPackages: ['sharp', '@payloadcms/richtext-lexical'],
+  serverExternalPackages: [
+    'sharp',
+    'payload',
+    '@payloadcms/next',
+    '@payloadcms/db-postgres',
+    '@payloadcms/richtext-lexical',
+    '@payloadcms/plugin-multi-tenant',
+    '@payloadcms/storage-s3',
+    '@payloadcms/email-nodemailer',
+  ],
   eslint: { ignoreDuringBuilds: true },
   webpack: (config, { isServer }) => {
     if (isServer) {
