@@ -1,8 +1,5 @@
+import config from '@payload-config'
 import { REST_DELETE, REST_GET, REST_OPTIONS, REST_PATCH, REST_POST, REST_PUT } from '@payloadcms/next/routes'
-import configPromise from '@payload-config'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const config = configPromise as any
 
 export const GET = REST_GET(config)
 export const POST = REST_POST(config)

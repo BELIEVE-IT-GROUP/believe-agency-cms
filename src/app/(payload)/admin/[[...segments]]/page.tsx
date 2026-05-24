@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
+import config from '@payload-config'
 import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
 import { importMap } from '../../importMap'
-import configPromise from '@payload-config'
 
 type Args = {
   params: Promise<{ segments: string[] }>
@@ -9,11 +9,9 @@ type Args = {
 }
 
 export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  generatePageMetadata({ config: configPromise as any, params, searchParams })
+  generatePageMetadata({ config, params, searchParams })
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Page = ({ params, searchParams }: Args) =>
-  RootPage({ config: configPromise as any, importMap, params, searchParams })
+  RootPage({ config, params, searchParams, importMap })
 
 export default Page
