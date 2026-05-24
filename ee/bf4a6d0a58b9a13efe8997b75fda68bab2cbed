@@ -1,0 +1,19 @@
+src/app/(payload)/api/[...slug]/route.ts
+  s_23d8f643e8d068::t_296f39b5be2c01 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "eebf4a6d0a58b9a13efe8997b75fda68bab2cbed",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
