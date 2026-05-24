@@ -1,0 +1,24 @@
+.env.example
+  s_23d8f643e8d068::t_b8dafebd34023a 8-14
+package.json
+  s_23d8f643e8d068::t_7fe683f41d145a 20
+src/payload.config.ts
+  s_23d8f643e8d068::t_8444acdf15371b 5
+  s_23d8f643e8d068::t_179b0e59d03397 55-73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "e82b8c619533c9d35ccfc1d99ce50e4c9b8b6960",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
