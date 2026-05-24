@@ -1,4 +1,4 @@
-import type { Access } from 'payload'
+import type { Access, Where } from 'payload'
 
 export const byTenant: Access = ({ req: { user } }) => {
   if (!user) return false
@@ -7,18 +7,17 @@ export const byTenant: Access = ({ req: { user } }) => {
   const tenantId = user.lastLoggedInTenant?.id ?? user.lastLoggedInTenant
   if (!tenantId) return false
 
-  return { tenant: { equals: tenantId } }
+  return { tenant: { equals: tenantId } } as Where
 }
 
-// Returns tenant-scoped results for editors, published-only for anonymous
 export const byTenantOrPublished: Access = ({ req: { user } }) => {
   if (user?.roles?.includes('super-admin')) return true
 
   const tenantId = user?.lastLoggedInTenant?.id ?? user?.lastLoggedInTenant
 
   if (tenantId) {
-    return { tenant: { equals: tenantId } }
+    return { tenant: { equals: tenantId } } as Where
   }
 
-  return { _status: { equals: 'published' } }
+  return { _status: { equals: 'published' } } as Where
 }
