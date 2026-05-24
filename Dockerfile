@@ -15,10 +15,7 @@ ENV DATABASE_URI=$DATABASE_URI
 ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
 RUN node node_modules/.bin/payload generate:importmap || true
 RUN node node_modules/.bin/next build
-# Create initial migration file from collections schema (may fail if tsconfig issues)
-RUN mkdir -p migrations && \
-    node_modules/.bin/tsx node_modules/.bin/payload migrate:create --name=initial 2>&1 || \
-    echo "[migration] migrate:create failed - will use pushDevSchema at runtime"
+RUN mkdir -p migrations
 
 FROM base AS runner
 WORKDIR /app
