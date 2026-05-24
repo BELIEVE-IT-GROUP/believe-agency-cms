@@ -1,26 +1,22 @@
-// Runs at container startup to push Payload schema via drizzle
-// Uses NODE_ENV=development so pushDevSchema is called
-const originalEnv = process.env.NODE_ENV
-process.env.NODE_ENV = 'development'
+// Startup script: push Payload schema (creates all tables) then exit
+// tsx runs this before next start so the DB is ready for first request
+import { getPayload } from 'payload'
+import config from './src/payload.config'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+;(process.env as any)['NODE_ENV'] = 'development'
 
 async function run() {
   try {
-    const { getPayload } = await import('payload')
-    const configMod = await import('./src/payload.config')
-    const config = configMod.default
-
-    console.log('[init-db] Initializing Payload and pushing schema...')
+    console.log('[init-db] Pushing schema...')
     const payload = await getPayload({ config })
-    await payload.db.connect({ config: payload.config })
-    console.log('[init-db] Schema ready')
+    console.log('[init-db] Done')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await (payload.db as any)?.destroy?.()
   } catch (err: any) {
-    // Tables may already exist — log but don't fail
-    console.log('[init-db] Init result:', err?.message?.slice(0, 100) || 'OK')
-  } finally {
-    process.env.NODE_ENV = originalEnv || 'production'
-    process.exit(0)
+    console.log('[init-db]', err?.message?.slice(0, 120) ?? 'error')
   }
+  process.exit(0)
 }
 
 run()
