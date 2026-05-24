@@ -8,8 +8,6 @@ const nextConfig = {
   },
   serverExternalPackages: [
     'sharp',
-    'payload',
-    '@payloadcms/db-postgres',
     '@payloadcms/plugin-multi-tenant',
     '@payloadcms/storage-s3',
     '@payloadcms/email-nodemailer',
