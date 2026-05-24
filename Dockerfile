@@ -38,5 +38,5 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# NODE_ENV=development so Payload's connect() runs pushDevSchema to create tables on first startup
-CMD ["sh", "-c", "NODE_ENV=development exec node_modules/.bin/next start"]
+# Schema already exists — run in production mode so admin renders correctly
+CMD ["node_modules/.bin/next", "start"]
