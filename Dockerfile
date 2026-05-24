@@ -15,12 +15,16 @@ ENV DATABASE_URI=$DATABASE_URI
 ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
 RUN node node_modules/.bin/payload generate:importmap || true
 RUN node node_modules/.bin/next build
-# Create initial migration file from collections schema
-RUN node_modules/.bin/tsx node_modules/.bin/payload migrate:create --name=initial 2>/dev/null || true
+# Create initial migration file from collections schema (may fail if tsconfig issues)
+RUN mkdir -p migrations && \
+    node_modules/.bin/tsx node_modules/.bin/payload migrate:create --name=initial 2>&1 || \
+    echo "[migration] migrate:create failed - will use pushDevSchema at runtime"
 
 FROM base AS runner
 WORKDIR /app
-ENV NODE_ENV=production
+# NODE_ENV=development so Payload's pushDevSchema runs on first startup
+# (next start always serves the production build regardless of NODE_ENV)
+ENV NODE_ENV=development
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN addgroup --system --gid 1001 nodejs && \
@@ -40,5 +44,4 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# Run migrations then start the server
-CMD ["sh", "-c", "node_modules/.bin/tsx node_modules/.bin/payload migrate 2>&1 || echo 'Migrations already applied'; node_modules/.bin/next start"]
+CMD ["node_modules/.bin/next", "start"]
