@@ -16,18 +16,6 @@ const nextConfig = {
     '@aws-sdk/client-s3',
   ],
   eslint: { ignoreDuringBuilds: true },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      // Handle CSS imports from external packages (@payloadcms/next deps like react-image-crop)
-      // that Node.js can't process at runtime when those packages are external
-      config.module.rules.push({
-        test: /\.css$/,
-        include: /node_modules/,
-        use: ['null-loader'],
-      })
-    }
-    return config
-  },
   images: {
     remotePatterns: [
       {
