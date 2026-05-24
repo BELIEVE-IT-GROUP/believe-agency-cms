@@ -13,6 +13,9 @@ const nextConfig = {
     cpus: 1,
   },
   eslint: { ignoreDuringBuilds: true },
+  async redirects() {
+    return [{ source: '/', destination: '/admin', permanent: false }]
+  },
   images: {
     remotePatterns: [
       {
