@@ -71,7 +71,6 @@ export default buildConfig({
         media: {},
         categories: {},
       },
-      tenantsArrayField: { name: 'tenants' },
       userHasAccessToAllTenants: (user) =>
         Boolean(user?.roles?.includes('super-admin')),
     }),
