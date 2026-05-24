@@ -1,0 +1,23 @@
+css-ignore.mjs
+  s_23d8f643e8d068::t_d74758b2009763 1-23
+Dockerfile
+  s_23d8f643e8d068::t_65f5e3bf53a673 17-18
+  s_23d8f643e8d068::t_5c2c7d0932880c 49-50
+  s_23d8f643e8d068::t_a8db7c2641ca8c 36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "fce229085384ecbe7cb4bf4ca2ffa754969fd699",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
