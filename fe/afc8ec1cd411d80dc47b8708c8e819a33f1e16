@@ -1,0 +1,22 @@
+next.config.mjs
+  s_23d8f643e8d068::t_ad0a472071b9bb 2-5,9-10,22-25,30-33
+Dockerfile
+  s_23d8f643e8d068::t_b120861f20676e 17
+  s_23d8f643e8d068::t_ed10734050930c 48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "feafc8ec1cd411d80dc47b8708c8e819a33f1e16",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
