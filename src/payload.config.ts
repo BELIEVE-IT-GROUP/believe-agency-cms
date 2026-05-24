@@ -18,13 +18,6 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: '— Believe Agency CMS',
-      favicon: '/favicon.ico',
-    },
-    components: {
-      graphics: {
-        Logo: '/src/components/Logo',
-        Icon: '/src/components/Icon',
-      },
     },
   },
 
