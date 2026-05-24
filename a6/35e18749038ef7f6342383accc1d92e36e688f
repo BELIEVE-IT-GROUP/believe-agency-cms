@@ -1,0 +1,19 @@
+init-db.ts
+  s_23d8f643e8d068::t_bca390d8d3d05c 1-7,11,13-14,17,19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "a635e18749038ef7f6342383accc1d92e36e688f",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
