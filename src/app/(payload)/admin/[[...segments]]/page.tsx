@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
-import type { SanitizedConfig } from 'payload'
 import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
 import { importMap } from '../../importMap'
-
-// Payload v3 RootPage expects a Promise<SanitizedConfig> — extract default export from module
-const configPromise = import('@payload-config').then((m) => m.default) as Promise<SanitizedConfig>
+import configPromise from '@payload-config'
 
 type Args = {
   params: Promise<{ segments: string[] }>
@@ -12,9 +9,11 @@ type Args = {
 }
 
 export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
-  generatePageMetadata({ config: configPromise, params, searchParams })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  generatePageMetadata({ config: configPromise as any, params, searchParams })
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Page = ({ params, searchParams }: Args) =>
-  RootPage({ config: configPromise, importMap, params, searchParams })
+  RootPage({ config: configPromise as any, importMap, params, searchParams })
 
 export default Page
