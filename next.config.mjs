@@ -8,6 +8,7 @@ const nextConfig = {
   },
   serverExternalPackages: [
     'sharp',
+    '@payloadcms/next',
     '@payloadcms/plugin-multi-tenant',
     '@payloadcms/storage-s3',
     '@payloadcms/email-nodemailer',
@@ -17,12 +18,13 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   webpack: (config, { isServer }) => {
     if (isServer) {
-      // Payload admin chunks use <Html> from next/document which throws outside _document.
-      // Mock it with safe equivalents so the 404/500 prerender doesn't fail.
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        'next/document': new URL('./src/document-mock.js', import.meta.url).pathname,
-      }
+      // Handle CSS imports from external packages (@payloadcms/next deps like react-image-crop)
+      // that Node.js can't process at runtime when those packages are external
+      config.module.rules.push({
+        test: /\.css$/,
+        include: /node_modules/,
+        use: ['null-loader'],
+      })
     }
     return config
   },
