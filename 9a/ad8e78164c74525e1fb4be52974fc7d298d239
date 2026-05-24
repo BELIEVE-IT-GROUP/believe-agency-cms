@@ -1,0 +1,19 @@
+src/app/(payload)/admin/[[...segments]]/page.tsx
+  s_23d8f643e8d068::t_d904c649c2bb17 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "9aad8e78164c74525e1fb4be52974fc7d298d239",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
