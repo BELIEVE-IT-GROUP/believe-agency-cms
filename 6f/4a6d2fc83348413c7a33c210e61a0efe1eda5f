@@ -1,0 +1,21 @@
+next.config.mjs
+  s_23d8f643e8d068::t_f61f4e45018cbf 14-19
+src/document-mock.js
+  s_23d8f643e8d068::t_3a24f6b0af0ac9 1-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "6f4a6d2fc83348413c7a33c210e61a0efe1eda5f",
+  "prompts": {},
+  "sessions": {
+    "s_23d8f643e8d068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e104fee1-38a2-4420-8c0c-f4d376c3c0df",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
