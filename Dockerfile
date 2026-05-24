@@ -14,7 +14,8 @@ ARG PAYLOAD_SECRET
 ENV DATABASE_URI=$DATABASE_URI
 ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
 RUN node node_modules/.bin/payload generate:importmap || true
-RUN node node_modules/.bin/next build
+# Use css-ignore loader so @payloadcms/ui CSS imports don't break the build
+RUN NODE_OPTIONS='--import /app/css-ignore.mjs' node node_modules/.bin/next build
 RUN mkdir -p migrations
 
 FROM base AS runner
@@ -32,6 +33,7 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.mjs ./next.config.mjs
+COPY --from=builder /app/css-ignore.mjs ./css-ignore.mjs
 COPY --from=builder /app/src ./src
 COPY --from=builder /app/tsconfig.json ./tsconfig.json
 COPY --from=builder /app/init-db.ts ./init-db.ts
@@ -44,5 +46,5 @@ ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
 # NODE_ENV=development at runtime so payload's connect() calls pushDevSchema to create tables
-# next start always serves the pre-built production bundle regardless of NODE_ENV
-CMD ["sh", "-c", "NODE_ENV=development exec node_modules/.bin/next start"]
+# css-ignore.mjs handles CSS imports from @payloadcms/ui deps
+CMD ["sh", "-c", "NODE_ENV=development NODE_OPTIONS='--import /app/css-ignore.mjs' exec node_modules/.bin/next start"]
