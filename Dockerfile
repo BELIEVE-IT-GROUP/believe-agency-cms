@@ -21,7 +21,7 @@ FROM base AS runner
 WORKDIR /app
 # NODE_ENV=development so Payload's pushDevSchema runs on first startup
 # (next start always serves the production build regardless of NODE_ENV)
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN addgroup --system --gid 1001 nodejs && \
@@ -43,5 +43,6 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-# Start server, wait for it, call init endpoint to push schema, then keep running
-CMD ["sh", "-c", "node_modules/.bin/next start & SERVER_PID=$!; until curl -sf -H \"x-init-secret: $PAYLOAD_SECRET\" http://localhost:3000/api/init > /tmp/init.log 2>&1; do sleep 2; done; cat /tmp/init.log; wait $SERVER_PID"]
+# NODE_ENV=development at runtime so payload's connect() calls pushDevSchema to create tables
+# next start always serves the pre-built production bundle regardless of NODE_ENV
+CMD ["sh", "-c", "NODE_ENV=development exec node_modules/.bin/next start"]
