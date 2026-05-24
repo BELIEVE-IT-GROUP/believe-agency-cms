@@ -1,0 +1,21 @@
+next.config.mjs
+  s_35505e6c3f9d06::t_ff7fe0629a7fb3 16-18
+.gitignore
+  s_35505e6c3f9d06::t_9d337df17b1cc8 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.0",
+  "base_commit_sha": "5da52edc7774559edddf47d6fa6990462e0d39f6",
+  "prompts": {},
+  "sessions": {
+    "s_35505e6c3f9d06": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "98583173-117d-4419-98b3-8c71d655ab56",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
