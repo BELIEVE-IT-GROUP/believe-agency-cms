@@ -7,6 +7,7 @@ const nextConfig = {
     workerThreads: false,
     cpus: 1,
   },
+  serverExternalPackages: ['sharp', '@payloadcms/richtext-lexical'],
   eslint: {
     ignoreDuringBuilds: true,
   },
