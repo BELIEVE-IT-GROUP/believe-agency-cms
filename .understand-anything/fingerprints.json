@@ -1,0 +1,1244 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "ffde973eb42c20e758304e3b5afdb47d8b3f2915",
+  "generatedAt": "2026-06-03T15:47:40.874Z",
+  "files": {
+    ".env.example": {
+      "filePath": ".env.example",
+      "contentHash": "ae7ee932221c52a2d41e3c36290ae41b63eebde0c4afea33f274e80510628561",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    ".gitignore": {
+      "filePath": ".gitignore",
+      "contentHash": "5f6a079675f6f7234b64cf5c8b3379d9fd9f2fcff2789010305d619f391fc57a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": false
+    },
+    "BLUEPRINT.md": {
+      "filePath": "BLUEPRINT.md",
+      "contentHash": "41ced1a942e35ac34a3847297c592cdb64d1ff011e8f11d25c1266e2b328de07",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 191,
+      "hasStructuralAnalysis": true
+    },
+    "CONTEXT.md": {
+      "filePath": "CONTEXT.md",
+      "contentHash": "c1fd3cee7e80f54f135817f7689e7cfe68e62d1d2447e0ca02de26747f86967e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "Dockerfile": {
+      "filePath": "Dockerfile",
+      "contentHash": "07d387bf70d2af52280707c1ba0ba3566d7a51523ebb194ad3176e4e76c94315",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 43,
+      "hasStructuralAnalysis": true
+    },
+    "NEXT-SESSION.md": {
+      "filePath": "NEXT-SESSION.md",
+      "contentHash": "d14cfa71ea93e5e88e339938e01d926f7e6171ae3a896ddc59c00d6bc5d3ea57",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 76,
+      "hasStructuralAnalysis": true
+    },
+    "init-db.ts": {
+      "filePath": "init-db.ts",
+      "contentHash": "96d1b21c040889ea4db72d5014906e8b323f2b1f9e0a5409883ae543e7e6d9f9",
+      "functions": [
+        {
+          "name": "run",
+          "params": [],
+          "exported": false,
+          "lineCount": 12
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "getPayload"
+          ]
+        },
+        {
+          "source": "./src/payload.config",
+          "specifiers": [
+            "config"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "next-env.d.ts": {
+      "filePath": "next-env.d.ts",
+      "contentHash": "85ae5aee75f011967cf2d25cbc342f62d69314e9d925f7f4aa3456fc2cffcca6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "next.config.mjs": {
+      "filePath": "next.config.mjs",
+      "contentHash": "d547c7e99f5091ca0c8a878392d3a9250ac36efb797e52751538dc447bde3aba",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@payloadcms/next/withPayload",
+          "specifiers": [
+            "withPayload"
+          ]
+        },
+        {
+          "source": "url",
+          "specifiers": [
+            "fileURLToPath"
+          ]
+        },
+        {
+          "source": "path",
+          "specifiers": [
+            "path"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "67c77fcd6a9afa6dec5a415e5910da69df0636227b3bcd6e586fbf65b1540791",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "public/.gitkeep": {
+      "filePath": "public/.gitkeep",
+      "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "23ff749374322d3bf3b9ba6cbdd8c87a221d095ba8fdc04ed2721bb0e39aa2ba",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "src/payload.config.ts": {
+      "filePath": "src/payload.config.ts",
+      "contentHash": "c27ae3661d154fca1ce6ff6b48624525bd30d82ee04e5abc4c63c7991a304a1e",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@payloadcms/db-postgres",
+          "specifiers": [
+            "postgresAdapter"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical",
+          "specifiers": [
+            "lexicalEditor"
+          ]
+        },
+        {
+          "source": "@payloadcms/email-nodemailer",
+          "specifiers": [
+            "nodemailerAdapter"
+          ]
+        },
+        {
+          "source": "@payloadcms/plugin-multi-tenant",
+          "specifiers": [
+            "multiTenantPlugin"
+          ]
+        },
+        {
+          "source": "@payloadcms/storage-s3",
+          "specifiers": [
+            "s3Storage"
+          ]
+        },
+        {
+          "source": "payload",
+          "specifiers": [
+            "buildConfig"
+          ]
+        },
+        {
+          "source": "sharp",
+          "specifiers": [
+            "sharp"
+          ]
+        },
+        {
+          "source": "./collections/Users",
+          "specifiers": [
+            "Users"
+          ]
+        },
+        {
+          "source": "./collections/Tenants",
+          "specifiers": [
+            "Tenants"
+          ]
+        },
+        {
+          "source": "./collections/Media",
+          "specifiers": [
+            "Media"
+          ]
+        },
+        {
+          "source": "./collections/Pages",
+          "specifiers": [
+            "Pages"
+          ]
+        },
+        {
+          "source": "./collections/Posts",
+          "specifiers": [
+            "Posts"
+          ]
+        },
+        {
+          "source": "./collections/Categories",
+          "specifiers": [
+            "Categories"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    "src/access/byTenant.ts": {
+      "filePath": "src/access/byTenant.ts",
+      "contentHash": "ef518d3021fd8fd14d52e11eaa08cae474d3ca49bc33734d4c239ab950dcd2b6",
+      "functions": [
+        {
+          "name": "byTenant",
+          "params": [
+            "{ req: { user } }"
+          ],
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "byTenantOrPublished",
+          "params": [
+            "{ req: { user } }"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Access",
+            "Where"
+          ]
+        }
+      ],
+      "exports": [
+        "byTenant",
+        "byTenantOrPublished"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "src/collections/Pages.ts": {
+      "filePath": "src/collections/Pages.ts",
+      "contentHash": "2acf4d424e56cee0e050122467bb7769a8512402dacd7121672d3da5c2c7e11e",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "CollectionConfig"
+          ]
+        },
+        {
+          "source": "../blocks",
+          "specifiers": [
+            "allBlocks"
+          ]
+        },
+        {
+          "source": "../access/byTenant",
+          "specifiers": [
+            "byTenant",
+            "byTenantOrPublished"
+          ]
+        }
+      ],
+      "exports": [
+        "Pages"
+      ],
+      "totalLines": 51,
+      "hasStructuralAnalysis": true
+    },
+    "src/collections/Posts.ts": {
+      "filePath": "src/collections/Posts.ts",
+      "contentHash": "2a4398c0327d700879134b745adcb34584513e1535d94fb2f717ba0cc0915542",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "CollectionConfig"
+          ]
+        },
+        {
+          "source": "../access/byTenant",
+          "specifiers": [
+            "byTenant",
+            "byTenantOrPublished"
+          ]
+        }
+      ],
+      "exports": [
+        "Posts"
+      ],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "src/collections/Media.ts": {
+      "filePath": "src/collections/Media.ts",
+      "contentHash": "19205fa3a3e91c204f0caf6840614b4cfa965267f286891c5fc5830c94386988",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "CollectionConfig"
+          ]
+        },
+        {
+          "source": "../access/byTenant",
+          "specifiers": [
+            "byTenant"
+          ]
+        }
+      ],
+      "exports": [
+        "Media"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/collections/Categories.ts": {
+      "filePath": "src/collections/Categories.ts",
+      "contentHash": "992d4aaa2d7898ee4b4b84568fb7562139591b4f997b20f48d8601dcd8632923",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "CollectionConfig"
+          ]
+        },
+        {
+          "source": "../access/byTenant",
+          "specifiers": [
+            "byTenant"
+          ]
+        }
+      ],
+      "exports": [
+        "Categories"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "src/collections/Tenants.ts": {
+      "filePath": "src/collections/Tenants.ts",
+      "contentHash": "8827aba63885e6f6d661b0e1ec05aa12a9dc321e0104df99ef592ec41c6e19c1",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "CollectionConfig"
+          ]
+        }
+      ],
+      "exports": [
+        "Tenants"
+      ],
+      "totalLines": 62,
+      "hasStructuralAnalysis": true
+    },
+    "src/collections/Users.ts": {
+      "filePath": "src/collections/Users.ts",
+      "contentHash": "e89c6d059af4a5bd0b55f92a22255075ffafe86077d01727d935abb76a307feb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "CollectionConfig"
+          ]
+        }
+      ],
+      "exports": [
+        "Users"
+      ],
+      "totalLines": 49,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/index.ts": {
+      "filePath": "src/blocks/index.ts",
+      "contentHash": "59c1fff35f5afa0cc6911b1db0ee4bd2ec1b8d164b053d5d4171ff1dd5ca8304",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        },
+        {
+          "source": "./Hero",
+          "specifiers": [
+            "HeroBlock"
+          ]
+        },
+        {
+          "source": "./Features",
+          "specifiers": [
+            "FeaturesBlock"
+          ]
+        },
+        {
+          "source": "./Pricing",
+          "specifiers": [
+            "PricingBlock"
+          ]
+        },
+        {
+          "source": "./Testimonials",
+          "specifiers": [
+            "TestimonialsBlock"
+          ]
+        },
+        {
+          "source": "./Cta",
+          "specifiers": [
+            "CtaBlock"
+          ]
+        },
+        {
+          "source": "./Faq",
+          "specifiers": [
+            "FaqBlock"
+          ]
+        },
+        {
+          "source": "./Stats",
+          "specifiers": [
+            "StatsBlock"
+          ]
+        },
+        {
+          "source": "./Team",
+          "specifiers": [
+            "TeamBlock"
+          ]
+        },
+        {
+          "source": "./LogoCloud",
+          "specifiers": [
+            "LogoCloudBlock"
+          ]
+        },
+        {
+          "source": "./Gallery",
+          "specifiers": [
+            "GalleryBlock"
+          ]
+        },
+        {
+          "source": "./Contact",
+          "specifiers": [
+            "ContactBlock"
+          ]
+        },
+        {
+          "source": "./SplitContent",
+          "specifiers": [
+            "SplitContentBlock"
+          ]
+        },
+        {
+          "source": "./VideoEmbed",
+          "specifiers": [
+            "VideoEmbedBlock"
+          ]
+        },
+        {
+          "source": "./Newsletter",
+          "specifiers": [
+            "NewsletterBlock"
+          ]
+        },
+        {
+          "source": "./BlogList",
+          "specifiers": [
+            "BlogListBlock"
+          ]
+        }
+      ],
+      "exports": [
+        "allBlocks"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Hero.ts": {
+      "filePath": "src/blocks/Hero.ts",
+      "contentHash": "2f7285697989ea4cf8e112fce1e66806f7eebb43fb6f2cd4c6bd13d56ae94235",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "HeroBlock"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Features.ts": {
+      "filePath": "src/blocks/Features.ts",
+      "contentHash": "dd220a9ec051bc451b5764b66a6e362061721021139d5cc2f5b97ecb51c22260",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "FeaturesBlock"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Cta.ts": {
+      "filePath": "src/blocks/Cta.ts",
+      "contentHash": "66b58ce694b4863f277c48be78f82044c38c3ed186bc682db4a2a94e7151af49",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "CtaBlock"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Testimonials.ts": {
+      "filePath": "src/blocks/Testimonials.ts",
+      "contentHash": "c2b306d4a713686cbb5579b0c0c8170b6573b93de9d0ae38222795772d8e7399",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "TestimonialsBlock"
+      ],
+      "totalLines": 34,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Pricing.ts": {
+      "filePath": "src/blocks/Pricing.ts",
+      "contentHash": "2859ed7393062639ce3ef37324a351684b6bc596cbe64aa784cd097feb1ea6b9",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "PricingBlock"
+      ],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Team.ts": {
+      "filePath": "src/blocks/Team.ts",
+      "contentHash": "7d363d27835a919e0c0d731cfcd13ecfb339f39378f10e86cc6f3421ac2d891f",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "TeamBlock"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Faq.ts": {
+      "filePath": "src/blocks/Faq.ts",
+      "contentHash": "b1abfa140c2ea2ec2c373628e971f722aecec2810c6058ee7ef48ffdafbe0dd1",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "FaqBlock"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Gallery.ts": {
+      "filePath": "src/blocks/Gallery.ts",
+      "contentHash": "3068f902005164261080c101e2184abbe64c26e1478e79f3a19f7b1c49d0dde4",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "GalleryBlock"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/BlogList.ts": {
+      "filePath": "src/blocks/BlogList.ts",
+      "contentHash": "71cf0de2fb72e755ad258c69848277fb18f0793a57cfdf3fd60926f947273e95",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "BlogListBlock"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Contact.ts": {
+      "filePath": "src/blocks/Contact.ts",
+      "contentHash": "8f0265d197ddf734e311523c9645a91178a362ad8dd1e8372ad7c7b6f233fbb8",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "ContactBlock"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/LogoCloud.ts": {
+      "filePath": "src/blocks/LogoCloud.ts",
+      "contentHash": "fd0d22e7b7a5de5a50e6bfc73d211febc66af924010d0c0cba312cc5e835a92b",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "LogoCloudBlock"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Newsletter.ts": {
+      "filePath": "src/blocks/Newsletter.ts",
+      "contentHash": "3b36295a53eff8e88e9e424038ab6cd46f5c33bbd5f69a986ad6d9227adc0cbe",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "NewsletterBlock"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/SplitContent.ts": {
+      "filePath": "src/blocks/SplitContent.ts",
+      "contentHash": "b00761e8275b3c6e0c3e27d4a5453b5b07b3a94c1f3600d961d8bfcca54ece5e",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "SplitContentBlock"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/Stats.ts": {
+      "filePath": "src/blocks/Stats.ts",
+      "contentHash": "268cd500429cedd7fb50c4a6ed3ccba4185492ecf702fab9593262dc629f1623",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "StatsBlock"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/blocks/VideoEmbed.ts": {
+      "filePath": "src/blocks/VideoEmbed.ts",
+      "contentHash": "1f89ecf0789db3a3a0b638d02394dc03372760755fe58d7fdca60456b91a3b24",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "Block"
+          ]
+        }
+      ],
+      "exports": [
+        "VideoEmbedBlock"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(payload)/admin/[[...segments]]/page.tsx": {
+      "filePath": "src/app/(payload)/admin/[[...segments]]/page.tsx",
+      "contentHash": "2fe1f0fda0df7533cff0251bb89b2af3f485053bccae645243112c974564f980",
+      "functions": [
+        {
+          "name": "generateMetadata",
+          "params": [
+            "{ params, searchParams }"
+          ],
+          "returnType": "Promise<Metadata>",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "Page",
+          "params": [
+            "{ params, searchParams }"
+          ],
+          "exported": false,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "Metadata"
+          ]
+        },
+        {
+          "source": "@payload-config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "@payloadcms/next/views",
+          "specifiers": [
+            "RootPage",
+            "generatePageMetadata"
+          ]
+        },
+        {
+          "source": "../importMap.js",
+          "specifiers": [
+            "importMap"
+          ]
+        }
+      ],
+      "exports": [
+        "generateMetadata"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(payload)/admin/importMap.js": {
+      "filePath": "src/app/(payload)/admin/importMap.js",
+      "contentHash": "71fd415ef05209daec1bc231a4a5a7dee2185062c1abb4cc277a04511c324214",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@payloadcms/richtext-lexical/rsc",
+          "specifiers": [
+            "RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/rsc",
+          "specifiers": [
+            "RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/rsc",
+          "specifiers": [
+            "LexicalDiffComponent_44fe37237e0ebf4470c9990d8cb7b07e"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "UploadFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "BlockquoteFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "RelationshipFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "LinkFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "ChecklistFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "OrderedListFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "UnorderedListFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "IndentFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "AlignFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "HeadingFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "ParagraphFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "InlineCodeFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "SuperscriptFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "SubscriptFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "StrikethroughFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "UnderlineFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/richtext-lexical/client",
+          "specifiers": [
+            "ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864"
+          ]
+        },
+        {
+          "source": "@payloadcms/storage-s3/client",
+          "specifiers": [
+            "S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24"
+          ]
+        },
+        {
+          "source": "@payloadcms/plugin-multi-tenant/client",
+          "specifiers": [
+            "AssignTenantFieldTrigger_1d0591e3cf4f332c83a86da13a0de59a"
+          ]
+        },
+        {
+          "source": "@payloadcms/plugin-multi-tenant/client",
+          "specifiers": [
+            "TenantField_1d0591e3cf4f332c83a86da13a0de59a"
+          ]
+        },
+        {
+          "source": "@payloadcms/plugin-multi-tenant/client",
+          "specifiers": [
+            "WatchTenantCollection_1d0591e3cf4f332c83a86da13a0de59a"
+          ]
+        },
+        {
+          "source": "@payloadcms/plugin-multi-tenant/rsc",
+          "specifiers": [
+            "GlobalViewRedirect_d6d5f193a167989e2ee7d14202901e62"
+          ]
+        },
+        {
+          "source": "@payloadcms/plugin-multi-tenant/rsc",
+          "specifiers": [
+            "TenantSelector_d6d5f193a167989e2ee7d14202901e62"
+          ]
+        },
+        {
+          "source": "@payloadcms/plugin-multi-tenant/rsc",
+          "specifiers": [
+            "TenantSelectionProvider_d6d5f193a167989e2ee7d14202901e62"
+          ]
+        },
+        {
+          "source": "@payloadcms/next/rsc",
+          "specifiers": [
+            "CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1"
+          ]
+        }
+      ],
+      "exports": [
+        "importMap"
+      ],
+      "totalLines": 67,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(payload)/api/[...slug]/route.ts": {
+      "filePath": "src/app/(payload)/api/[...slug]/route.ts",
+      "contentHash": "6c0c7528c265c2640d8bd80ea578851b274d533c2593a4522d98b225d3112f61",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@payload-config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "@payloadcms/next/routes",
+          "specifiers": [
+            "REST_DELETE",
+            "REST_GET",
+            "REST_OPTIONS",
+            "REST_PATCH",
+            "REST_POST",
+            "REST_PUT"
+          ]
+        }
+      ],
+      "exports": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PATCH",
+        "PUT",
+        "OPTIONS"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(payload)/layout.tsx": {
+      "filePath": "src/app/(payload)/layout.tsx",
+      "contentHash": "cb4bb164e5d95a3a39b704ae1598dff75fadc9da8ca5bf8ea12580756488c29a",
+      "functions": [
+        {
+          "name": "serverFunction",
+          "params": [
+            "args"
+          ],
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "Layout",
+          "params": [
+            "{ children }"
+          ],
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "payload",
+          "specifiers": [
+            "ServerFunctionClient"
+          ]
+        },
+        {
+          "source": "@payload-config",
+          "specifiers": [
+            "config"
+          ]
+        },
+        {
+          "source": "@payloadcms/next/css",
+          "specifiers": []
+        },
+        {
+          "source": "@payloadcms/next/layouts",
+          "specifiers": [
+            "RootLayout",
+            "handleServerFunctions"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "React"
+          ]
+        },
+        {
+          "source": "./admin/importMap.js",
+          "specifiers": [
+            "importMap"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/not-found.tsx": {
+      "filePath": "src/app/not-found.tsx",
+      "contentHash": "e957dcc1f85160ab3f58b251b26fb7003dc3a9f4c4bda6342e84751238223c51",
+      "functions": [
+        {
+          "name": "NotFound",
+          "params": [],
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "dynamic",
+        "NotFound"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/404.js": {
+      "filePath": "src/pages/404.js",
+      "contentHash": "fe6babbde2c0fa0e98e75e4c85754ca0e62a7f7f5f524b3ae9f346d5ce0491ae",
+      "functions": [
+        {
+          "name": "Custom404",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Custom404"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "src/pages/500.js": {
+      "filePath": "src/pages/500.js",
+      "contentHash": "d62390c4584c01ae70ffdceeb6c686f3bb066defa3f948bc83ed3e036145b931",
+      "functions": [
+        {
+          "name": "Custom500",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Custom500"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    }
+  }
+}
