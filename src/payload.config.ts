@@ -3,6 +3,7 @@ import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
+import path from 'path'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users.ts'
@@ -17,6 +18,17 @@ const createPayloadConfig = async () => {
   const { lexicalEditor } = await import('@payloadcms/richtext-lexical')
 
   return buildConfig({
+  bin: [
+    {
+      key: 'bootstrap:settings',
+      scriptPath: path.resolve(process.cwd(), 'scripts/bootstrap-settings.mjs'),
+    },
+    {
+      key: 'bootstrap:tenant-content',
+      scriptPath: path.resolve(process.cwd(), 'scripts/bootstrap-tenant-content.mjs'),
+    },
+  ],
+
   admin: {
     user: Users.slug,
     meta: {

@@ -116,7 +116,13 @@ async function run() {
   }
 }
 
-run().catch((error) => {
-  console.error('[bootstrap-settings]', error)
-  process.exit(1)
-})
+export async function script() {
+  await run()
+}
+
+if (process.argv[1]?.endsWith('bootstrap-settings.ts')) {
+  run().catch((error) => {
+    console.error('[bootstrap-settings]', error)
+    process.exit(1)
+  })
+}

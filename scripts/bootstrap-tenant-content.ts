@@ -217,8 +217,8 @@ async function getOrCreateTenant(payload: Awaited<ReturnType<typeof getPayload>>
   return tenant as TenantDoc
 }
 
-async function run() {
-  const payload = await getPayload({ config })
+async function run(payloadConfig: any = config) {
+  const payload = await getPayload({ config: payloadConfig })
 
   try {
     const tenant = await getOrCreateTenant(payload)
@@ -573,7 +573,6 @@ async function run() {
   }
 }
 
-run().catch((error) => {
-  console.error('[bootstrap-tenant-content]', error)
-  process.exit(1)
-})
+export async function script(payloadConfig: any) {
+  await run(payloadConfig)
+}
