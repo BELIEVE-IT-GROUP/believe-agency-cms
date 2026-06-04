@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { byTenant } from '../access/byTenant'
+import { byTenant } from '../access/byTenant.ts'
 
 export const Categories: CollectionConfig = {
   slug: 'categories',

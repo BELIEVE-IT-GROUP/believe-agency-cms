@@ -12,3 +12,4 @@ node_modules/
 package-lock.json
 next-env.d.ts
 .gstack/
+flowbite-react-blocks-1.8.0-beta/

@@ -7,9 +7,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "check:flowbite": "node scripts/check-flowbite-catalog.mjs",
     "start": "next start",
+    "bootstrap:settings": "payload run scripts/bootstrap-settings.ts",
     "generate:types": "payload generate:types",
-    "generate:importmap": "payload generate:importmap"
+    "generate:importmap": "payload generate:importmap",
+    "migrate": "payload migrate",
+    "migrate:create": "payload migrate:create",
+    "migrate:status": "payload migrate:status"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.0.0",

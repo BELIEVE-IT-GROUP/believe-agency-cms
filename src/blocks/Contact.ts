@@ -1,9 +1,12 @@
 import type { Block } from 'payload'
+import { flowbiteAppearanceField, flowbiteTemplateField } from '../flowbite/payloadFields.ts'
 
 export const ContactBlock: Block = {
   slug: 'contact',
   labels: { singular: 'Contacto', plural: 'Contacto' },
   fields: [
+    flowbiteTemplateField('contact'),
+    flowbiteAppearanceField(),
     { name: 'headline', type: 'text', label: 'Título' },
     { name: 'subheadline', type: 'textarea', label: 'Subtítulo' },
     { name: 'destinationEmail', type: 'email', required: true, label: 'Email de destino' },
@@ -23,6 +26,18 @@ export const ContactBlock: Block = {
         { name: 'type', type: 'select', options: ['text', 'email', 'tel', 'textarea', 'select'].map(v => ({ label: v, value: v })), defaultValue: 'text' },
         { name: 'required', type: 'checkbox', defaultValue: false, label: 'Requerido' },
         { name: 'placeholder', type: 'text', label: 'Placeholder' },
+        {
+          name: 'options',
+          type: 'array',
+          label: 'Opciones del select',
+          admin: {
+            condition: (_, siblingData) => siblingData?.type === 'select',
+          },
+          fields: [
+            { name: 'label', type: 'text', required: true, label: 'Texto' },
+            { name: 'value', type: 'text', required: true, label: 'Valor' },
+          ],
+        },
       ],
     },
   ],

@@ -1,9 +1,12 @@
 import type { Block } from 'payload'
+import { flowbiteAppearanceField, flowbiteTemplateField } from '../flowbite/payloadFields.ts'
 
 export const BlogListBlock: Block = {
   slug: 'blog-list',
   labels: { singular: 'Lista de Blog', plural: 'Listas de Blog' },
   fields: [
+    flowbiteTemplateField('blog-list'),
+    flowbiteAppearanceField(),
     { name: 'headline', type: 'text', label: 'Título de sección' },
     { name: 'count', type: 'number', defaultValue: 3, min: 1, max: 12, label: 'Cantidad de posts a mostrar' },
     {

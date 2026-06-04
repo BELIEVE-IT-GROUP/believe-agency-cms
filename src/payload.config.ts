@@ -1,19 +1,22 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
-import { Users } from './collections/Users'
-import { Tenants } from './collections/Tenants'
-import { Media } from './collections/Media'
-import { Pages } from './collections/Pages'
-import { Posts } from './collections/Posts'
-import { Categories } from './collections/Categories'
+import { Users } from './collections/Users.ts'
+import { Tenants } from './collections/Tenants.ts'
+import { Media } from './collections/Media.ts'
+import { Pages } from './collections/Pages.ts'
+import { Posts } from './collections/Posts.ts'
+import { Categories } from './collections/Categories.ts'
+import { Settings } from './collections/Settings.ts'
 
-export default buildConfig({
+const createPayloadConfig = async () => {
+  const { lexicalEditor } = await import('@payloadcms/richtext-lexical')
+
+  return buildConfig({
   admin: {
     user: Users.slug,
     meta: {
@@ -39,7 +42,7 @@ export default buildConfig({
     },
   },
 
-  collections: [Users, Tenants, Media, Pages, Posts, Categories],
+  collections: [Users, Tenants, Media, Pages, Posts, Categories, Settings],
 
   editor: lexicalEditor({}),
 
@@ -94,6 +97,7 @@ export default buildConfig({
         posts: {},
         media: {},
         categories: {},
+        settings: {},
       },
       userHasAccessToAllTenants: (user) =>
         Boolean(user?.roles?.includes('super-admin')),
@@ -108,3 +112,6 @@ export default buildConfig({
     outputFile: './src/payload-types.ts',
   },
 })
+}
+
+export default createPayloadConfig()

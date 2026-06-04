@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
-import { allBlocks } from '../blocks'
-import { byTenant, byTenantOrPublished } from '../access/byTenant'
+import { allBlocks } from '../blocks/index.ts'
+import { byTenant, byTenantOrPublished } from '../access/byTenant.ts'
+import { revalidateFrontend } from '../hooks/revalidateFrontend.ts'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -14,6 +15,9 @@ export const Pages: CollectionConfig = {
     },
   },
   versions: { drafts: { autosave: true } },
+  hooks: {
+    afterChange: [revalidateFrontend('pages')],
+  },
   access: {
     read: byTenantOrPublished,
     create: byTenant,
