@@ -962,9 +962,12 @@ export interface Page {
           }
       )[]
     | null;
-  seo?: {
+  meta?: {
     title?: string | null;
     description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (number | null) | Media;
   };
   updatedAt: string;
@@ -1000,9 +1003,12 @@ export interface Post {
   category?: (number | null) | Category;
   publishedAt?: string | null;
   readTime?: number | null;
-  seo?: {
+  meta?: {
     title?: string | null;
     description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
     image?: (number | null) | Media;
   };
   updatedAt: string;
@@ -1096,6 +1102,25 @@ export interface Setting {
      * Hex. Ej: #FF6600
      */
     accentColor?: string | null;
+    /**
+     * Hex. Ej: #FAFAF7
+     */
+    paperColor?: string | null;
+    /**
+     * Hex. Ej: #0C3BB9
+     */
+    inkColor?: string | null;
+    fonts?: {
+      /**
+       * Nombre de Google Font, ej Poppins
+       */
+      display?: string | null;
+      /**
+       * Nombre de Google Font, ej Poppins
+       */
+      body?: string | null;
+    };
+    tone?: string | null;
     defaultOgImage?: (number | null) | Media;
   };
   socialLinks?:
@@ -1784,7 +1809,7 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
-  seo?:
+  meta?:
     | T
     | {
         title?: T;
@@ -1809,7 +1834,7 @@ export interface PostsSelect<T extends boolean = true> {
   category?: T;
   publishedAt?: T;
   readTime?: T;
-  seo?:
+  meta?:
     | T
     | {
         title?: T;
@@ -1881,6 +1906,15 @@ export interface SettingsSelect<T extends boolean = true> {
     | {
         primaryColor?: T;
         accentColor?: T;
+        paperColor?: T;
+        inkColor?: T;
+        fonts?:
+          | T
+          | {
+              display?: T;
+              body?: T;
+            };
+        tone?: T;
         defaultOgImage?: T;
       };
   socialLinks?:

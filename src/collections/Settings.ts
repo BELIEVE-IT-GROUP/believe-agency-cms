@@ -127,6 +127,42 @@ export const Settings: CollectionConfig = {
           label: 'Color de acento',
           admin: { description: 'Hex. Ej: #FF6600' },
         },
+        {
+          name: 'paperColor',
+          type: 'text',
+          label: 'Color papel/fondo',
+          admin: { description: 'Hex. Ej: #FAFAF7' },
+        },
+        {
+          name: 'inkColor',
+          type: 'text',
+          label: 'Color tinta/texto',
+          admin: { description: 'Hex. Ej: #0C3BB9' },
+        },
+        {
+          name: 'fonts',
+          type: 'group',
+          label: 'Tipografia',
+          fields: [
+            {
+              name: 'display',
+              type: 'text',
+              label: 'Fuente titulares',
+              admin: { description: 'Nombre de Google Font, ej Poppins' },
+            },
+            {
+              name: 'body',
+              type: 'text',
+              label: 'Fuente cuerpo',
+              admin: { description: 'Nombre de Google Font, ej Poppins' },
+            },
+          ],
+        },
+        {
+          name: 'tone',
+          type: 'text',
+          label: 'Tono de voz',
+        },
         { name: 'defaultOgImage', type: 'upload', relationTo: 'media', label: 'OG image por defecto' },
       ],
     },

@@ -277,7 +277,7 @@ async function run(payloadConfig: any = config) {
           publishedAt: new Date().toISOString(),
           readTime: 4,
           _status: 'published',
-          seo: {
+          meta: {
             title: `${post.title} | ${siteName}`,
             description: post.excerpt,
           },
@@ -293,7 +293,7 @@ async function run(payloadConfig: any = config) {
         tenant: tenant.id,
         title: 'Home',
         _status: 'published',
-        seo: {
+        meta: {
           title: `${siteName} | Webs y sistemas digitales listos para crecer`,
           description:
             'Sitios, CMS multitenant y automatizaciones para lanzar experiencias digitales editables, profesionales y medibles.',
@@ -502,7 +502,7 @@ async function run(payloadConfig: any = config) {
         tenant: tenant.id,
         title: 'Contacto',
         _status: 'published',
-        seo: {
+        meta: {
           title: `Contacto | ${siteName}`,
           description: 'Cuéntanos qué quieres construir y te ayudamos a definir el siguiente paso.',
         },

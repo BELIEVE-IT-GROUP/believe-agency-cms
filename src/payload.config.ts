@@ -1,6 +1,7 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
 import path from 'path'
@@ -113,6 +114,13 @@ const createPayloadConfig = async () => {
       },
       userHasAccessToAllTenants: (user) =>
         Boolean(user?.roles?.includes('super-admin')),
+    }),
+
+    seoPlugin({
+      collections: ['pages', 'posts'],
+      uploadsCollection: 'media',
+      generateTitle: ({ doc }) => doc?.title,
+      generateDescription: ({ doc }) => doc?.excerpt || doc?.title,
     }),
   ],
 
