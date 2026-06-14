@@ -1,0 +1,36 @@
+scripts/bootstrap-tenant-content.ts
+  s_86c06f00f11ac8::t_3004f8e4e2b280 505
+  s_86c06f00f11ac8::t_2920d56549c8b1 280
+  s_86c06f00f11ac8::t_d163268c7722fa 296
+src/collections/Settings.ts
+  s_86c06f00f11ac8::t_fa0d48c6195183 130-165
+src/collections/Pages.ts
+  s_86c06f00f11ac8::t_53444bb5477cf0 45
+  s_86c06f00f11ac8::t_36d9902bd72fb1 8-10
+src/collections/Categories.ts
+  s_86c06f00f11ac8::t_b20e1d02eb9f9d 6-8
+  s_86c06f00f11ac8::t_80a34995e4251d 21
+src/payload.config.ts
+  s_86c06f00f11ac8::t_74004d292f12dd 4
+  s_86c06f00f11ac8::t_9032f24cb17542 118-124
+src/collections/Posts.ts
+  s_86c06f00f11ac8::t_647f5b1b15d00c 7-9
+  s_86c06f00f11ac8::t_37cfc7f4f44f0c 27
+  s_86c06f00f11ac8::t_d589f5674b2c65 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "a898496a79db47e91d749f696a3985dedd0b6d01",
+  "prompts": {},
+  "sessions": {
+    "s_86c06f00f11ac8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cab5c659-d488-459b-aad8-18b0f1b23ec2",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
