@@ -1,7 +1,7 @@
 // Startup script: push Payload schema (creates all tables) then exit
 // tsx runs this before next start so the DB is ready for first request
 import { getPayload } from 'payload'
-import config from './src/payload.config'
+import config from './src/payload.config.ts'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ;(process.env as any)['NODE_ENV'] = 'development'

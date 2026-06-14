@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
-import { byTenant, byTenantOrPublished } from '../access/byTenant'
+import { byTenant, byTenantOrPublished } from '../access/byTenant.ts'
+import { revalidateFrontend } from '../hooks/revalidateFrontend.ts'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -9,6 +10,9 @@ export const Posts: CollectionConfig = {
     defaultColumns: ['title', 'category', '_status', 'publishedAt'],
   },
   versions: { drafts: { autosave: true } },
+  hooks: {
+    afterChange: [revalidateFrontend('posts')],
+  },
   access: {
     read: byTenantOrPublished,
     create: byTenant,

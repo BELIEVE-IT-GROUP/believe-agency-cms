@@ -1,9 +1,12 @@
 import type { Block } from 'payload'
+import { flowbiteAppearanceField, flowbiteTemplateField } from '../flowbite/payloadFields.ts'
 
 export const GalleryBlock: Block = {
   slug: 'gallery',
   labels: { singular: 'Galería', plural: 'Galerías' },
   fields: [
+    flowbiteTemplateField('gallery'),
+    flowbiteAppearanceField(),
     { name: 'headline', type: 'text', label: 'Título' },
     {
       name: 'layout',

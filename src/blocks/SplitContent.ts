@@ -1,9 +1,12 @@
 import type { Block } from 'payload'
+import { flowbiteAppearanceField, flowbiteTemplateField } from '../flowbite/payloadFields.ts'
 
 export const SplitContentBlock: Block = {
   slug: 'split-content',
   labels: { singular: 'Split Content', plural: 'Split Contents' },
   fields: [
+    flowbiteTemplateField('split-content'),
+    flowbiteAppearanceField(),
     { name: 'headline', type: 'text', required: true, label: 'Título' },
     { name: 'body', type: 'richText', required: true, label: 'Contenido (richtext)' },
     { name: 'image', type: 'upload', relationTo: 'media', label: 'Imagen' },

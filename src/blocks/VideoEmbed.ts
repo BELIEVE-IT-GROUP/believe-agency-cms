@@ -1,9 +1,12 @@
 import type { Block } from 'payload'
+import { flowbiteAppearanceField, flowbiteTemplateField } from '../flowbite/payloadFields.ts'
 
 export const VideoEmbedBlock: Block = {
   slug: 'video-embed',
   labels: { singular: 'Video', plural: 'Videos' },
   fields: [
+    flowbiteTemplateField('video-embed'),
+    flowbiteAppearanceField(),
     { name: 'headline', type: 'text', label: 'Título (opcional)' },
     { name: 'subheadline', type: 'textarea', label: 'Subtítulo (opcional)' },
     {
