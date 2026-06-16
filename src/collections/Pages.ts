@@ -5,6 +5,9 @@ import { revalidateFrontend } from '../hooks/revalidateFrontend.ts'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
+  // Slug unique per (tenant, slug) so each tenant can have its own 'home'.
+  // 'tenant' field is injected by the multi-tenant plugin.
+  indexes: [{ fields: ['tenant', 'slug'], unique: true }],
   admin: {
     useAsTitle: 'title',
     group: 'Contenido',
@@ -30,7 +33,6 @@ export const Pages: CollectionConfig = {
       name: 'slug',
       type: 'text',
       required: true,
-      unique: true,
       label: 'Slug',
       admin: { description: 'URL: /slug. Usa "/" para la home.' },
     },
@@ -40,15 +42,6 @@ export const Pages: CollectionConfig = {
       label: 'Bloques de contenido',
       blocks: allBlocks,
     },
-    {
-      name: 'seo',
-      type: 'group',
-      label: 'SEO',
-      fields: [
-        { name: 'title', type: 'text', label: 'Meta título' },
-        { name: 'description', type: 'textarea', label: 'Meta descripción' },
-        { name: 'image', type: 'upload', relationTo: 'media', label: 'OG Image' },
-      ],
-    },
+    // SEO fields are provided by @payloadcms/plugin-seo (the 'meta' group).
   ],
 }
