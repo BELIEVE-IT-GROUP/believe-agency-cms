@@ -1,12 +1,9 @@
 import type { Block } from 'payload'
-import { flowbiteAppearanceField, flowbiteTemplateField } from '../flowbite/payloadFields.ts'
 
 export const HeroBlock: Block = {
   slug: 'hero',
   labels: { singular: 'Hero', plural: 'Heros' },
   fields: [
-    flowbiteTemplateField('hero'),
-    flowbiteAppearanceField(),
     {
       name: 'variant',
       type: 'select',

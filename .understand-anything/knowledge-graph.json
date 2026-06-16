@@ -1,0 +1,2214 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "believe-agency-cms",
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "JSON",
+      "Markdown",
+      "Dockerfile",
+      "MJS"
+    ],
+    "frameworks": [
+      "Payload CMS 3.x",
+      "Next.js 15",
+      "React 19",
+      "Lexical Editor",
+      "PostgreSQL",
+      "Cloudflare R2"
+    ],
+    "description": "Multi-tenant Payload CMS for Believe agency clients",
+    "analyzedAt": "2026-06-03T15:47:23.075Z",
+    "gitCommitHash": "ffde973eb42c20e758304e3b5afdb47d8b3f2915"
+  },
+  "nodes": [
+    {
+      "id": "file:src/payload.config.ts",
+      "type": "file",
+      "name": "payload.config.ts",
+      "filePath": "src/payload.config.ts",
+      "summary": "Main Payload CMS config: postgres DB, lexical editor, S3 storage via R2, multi-tenant plugin, nodemailer SMTP, live preview with 3 breakpoints, 6 collections",
+      "tags": [
+        "payload",
+        "config",
+        "cms",
+        "multi-tenant",
+        "live-preview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/payload.config.ts:buildConfig",
+      "type": "function",
+      "name": "buildConfig",
+      "filePath": "src/payload.config.ts",
+      "summary": "Assembles the full Payload configuration with plugins, DB, editor, email, and collections",
+      "tags": [
+        "payload",
+        "config",
+        "buildConfig"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/access/byTenant.ts",
+      "type": "file",
+      "name": "byTenant.ts",
+      "filePath": "src/access/byTenant.ts",
+      "summary": "Two tenant-scoped access control functions: byTenant (authenticated) and byTenantOrPublished (public view published)",
+      "tags": [
+        "access",
+        "authorization",
+        "tenant"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/access/byTenant.ts:byTenant",
+      "type": "function",
+      "name": "byTenant",
+      "filePath": "src/access/byTenant.ts",
+      "summary": "Access filter: super-admin sees all, tenant users see only their own tenant's content",
+      "tags": [
+        "access",
+        "filter",
+        "tenant-scoped"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/access/byTenant.ts:byTenantOrPublished",
+      "type": "function",
+      "name": "byTenantOrPublished",
+      "filePath": "src/access/byTenant.ts",
+      "summary": "Access filter: authenticated tenant users see all their content, unauthenticated users see only published items",
+      "tags": [
+        "access",
+        "filter",
+        "public",
+        "published"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/collections/Pages.ts",
+      "type": "file",
+      "name": "Pages.ts",
+      "filePath": "src/collections/Pages.ts",
+      "summary": "Pages collection: title, slug (unique, home via '/'), allBlocks block builder, SEO group. Versions with autosave drafts. Tenant-scoped access.",
+      "tags": [
+        "collection",
+        "pages",
+        "blocks",
+        "seo",
+        "drafts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:variable:src/collections/Pages.ts:Pages",
+      "type": "variable",
+      "name": "Pages",
+      "filePath": "src/collections/Pages.ts",
+      "summary": "Payload CollectionConfig for pages: slug 'pages', block-based content, SEO meta, draft autosave, tenant access",
+      "tags": [
+        "collection",
+        "pages"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/collections/Posts.ts",
+      "type": "file",
+      "name": "Posts.ts",
+      "filePath": "src/collections/Posts.ts",
+      "summary": "Posts collection: title, slug, excerpt, coverImage (media relation), richText content, category relationship, publishedAt, readTime, SEO group. Versions with autosave.",
+      "tags": [
+        "collection",
+        "posts",
+        "blog",
+        "seo"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:variable:src/collections/Posts.ts:Posts",
+      "type": "variable",
+      "name": "Posts",
+      "filePath": "src/collections/Posts.ts",
+      "summary": "Payload CollectionConfig for blog posts: slug 'posts', richText content, category relation, tenant access",
+      "tags": [
+        "collection",
+        "posts"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/collections/Media.ts",
+      "type": "file",
+      "name": "Media.ts",
+      "filePath": "src/collections/Media.ts",
+      "summary": "Media upload collection: 3 image sizes (thumbnail 400x300, card 768x512, hero 1920x1080), alt text required, caption. Supports image/video/pdf mime types.",
+      "tags": [
+        "collection",
+        "media",
+        "upload",
+        "image-sizes"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:variable:src/collections/Media.ts:Media",
+      "type": "variable",
+      "name": "Media",
+      "filePath": "src/collections/Media.ts",
+      "summary": "Payload CollectionConfig for media uploads: slug 'media', 3 responsive image sizes, public read",
+      "tags": [
+        "collection",
+        "media"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/collections/Categories.ts",
+      "type": "file",
+      "name": "Categories.ts",
+      "filePath": "src/collections/Categories.ts",
+      "summary": "Categories collection: name, unique slug, description. Public read, tenant-scoped write.",
+      "tags": [
+        "collection",
+        "categories",
+        "taxonomy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/collections/Categories.ts:Categories",
+      "type": "variable",
+      "name": "Categories",
+      "filePath": "src/collections/Categories.ts",
+      "summary": "Payload CollectionConfig for post categories: slug 'categories', public read, tenant write",
+      "tags": [
+        "collection",
+        "categories"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/collections/Tenants.ts",
+      "type": "file",
+      "name": "Tenants.ts",
+      "filePath": "src/collections/Tenants.ts",
+      "summary": "Tenants collection (clients): name, unique slug, domain, logo (media relation), primaryColor, accentColor. Super-admin only for create/update/delete.",
+      "tags": [
+        "collection",
+        "tenants",
+        "multi-tenant",
+        "branding"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:variable:src/collections/Tenants.ts:Tenants",
+      "type": "variable",
+      "name": "Tenants",
+      "filePath": "src/collections/Tenants.ts",
+      "summary": "Payload CollectionConfig for client tenants: slug 'tenants', brand config, super-admin restricted",
+      "tags": [
+        "collection",
+        "tenants"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/collections/Users.ts",
+      "type": "file",
+      "name": "Users.ts",
+      "filePath": "src/collections/Users.ts",
+      "summary": "Users collection: email auth (7-day token), name, roles (super-admin, tenant-editor). Super-admin-only role assignment. Self-read for non-admins.",
+      "tags": [
+        "collection",
+        "users",
+        "auth",
+        "roles"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:variable:src/collections/Users.ts:Users",
+      "type": "variable",
+      "name": "Users",
+      "filePath": "src/collections/Users.ts",
+      "summary": "Payload CollectionConfig for users: slug 'users', email auth, role-based access, 7-day token expiry",
+      "tags": [
+        "collection",
+        "users"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/blocks/index.ts",
+      "type": "file",
+      "name": "blocks/index.ts",
+      "filePath": "src/blocks/index.ts",
+      "summary": "Barrel file that imports all 15 blocks and exports them as the allBlocks array for use in Pages collection",
+      "tags": [
+        "blocks",
+        "barrel",
+        "index"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/index.ts:allBlocks",
+      "type": "variable",
+      "name": "allBlocks",
+      "filePath": "src/blocks/index.ts",
+      "summary": "Array of 15 Block configs: Hero, Features, Pricing, Testimonials, CTA, FAQ, Stats, Team, LogoCloud, Gallery, Contact, SplitContent, VideoEmbed, Newsletter, BlogList",
+      "tags": [
+        "blocks",
+        "page-builder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Hero.ts",
+      "type": "file",
+      "name": "Hero.ts",
+      "filePath": "src/blocks/Hero.ts",
+      "summary": "Hero block: 4 variants (centered/split/video/image-bg), headline, subheadline, CTAs array with style, image, videoUrl, badge",
+      "tags": [
+        "block",
+        "hero",
+        "cta"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Hero.ts:HeroBlock",
+      "type": "variable",
+      "name": "HeroBlock",
+      "filePath": "src/blocks/Hero.ts",
+      "summary": "Payload Block config for hero sections: slug 'hero', 4 layout variants, CTAs, media, badge",
+      "tags": [
+        "block",
+        "hero"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Features.ts",
+      "type": "file",
+      "name": "Features.ts",
+      "filePath": "src/blocks/Features.ts",
+      "summary": "Features grid block: headline, subheadline, 4 layout options (grid-3/grid-2/list/alternating), items with icon, title, description, optional image",
+      "tags": [
+        "block",
+        "features",
+        "grid"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Features.ts:FeaturesBlock",
+      "type": "variable",
+      "name": "FeaturesBlock",
+      "filePath": "src/blocks/Features.ts",
+      "summary": "Payload Block config for feature grids: slug 'features', 4 layouts, icon+text items",
+      "tags": [
+        "block",
+        "features"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Pricing.ts",
+      "type": "file",
+      "name": "Pricing.ts",
+      "filePath": "src/blocks/Pricing.ts",
+      "summary": "Pricing block: headline, plans array with name, price, description, features list, included/not-included, CTA, highlighted flag, badge",
+      "tags": [
+        "block",
+        "pricing",
+        "plans"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Pricing.ts:PricingBlock",
+      "type": "variable",
+      "name": "PricingBlock",
+      "filePath": "src/blocks/Pricing.ts",
+      "summary": "Payload Block config for pricing tables: slug 'pricing', multi-plan comparison with features and CTA",
+      "tags": [
+        "block",
+        "pricing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Testimonials.ts",
+      "type": "file",
+      "name": "Testimonials.ts",
+      "filePath": "src/blocks/Testimonials.ts",
+      "summary": "Testimonials block: headline, 3 layouts (grid/carousel/masonry), items with name, role, company, photo, quote, rating 1-5",
+      "tags": [
+        "block",
+        "testimonials",
+        "social-proof"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Testimonials.ts:TestimonialsBlock",
+      "type": "variable",
+      "name": "TestimonialsBlock",
+      "filePath": "src/blocks/Testimonials.ts",
+      "summary": "Payload Block config for testimonials: slug 'testimonials', 3 layouts, quote + rating",
+      "tags": [
+        "block",
+        "testimonials"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Cta.ts",
+      "type": "file",
+      "name": "Cta.ts",
+      "filePath": "src/blocks/Cta.ts",
+      "summary": "CTA block: 3 variants (banner/card/split), headline, subheadline, up to 2 CTAs with style, optional background image",
+      "tags": [
+        "block",
+        "cta",
+        "conversion"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Cta.ts:CtaBlock",
+      "type": "variable",
+      "name": "CtaBlock",
+      "filePath": "src/blocks/Cta.ts",
+      "summary": "Payload Block config for CTAs: slug 'cta', 3 variants, multi-button support, background image",
+      "tags": [
+        "block",
+        "cta"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Faq.ts",
+      "type": "file",
+      "name": "Faq.ts",
+      "filePath": "src/blocks/Faq.ts",
+      "summary": "FAQ block: headline, subheadline, items array with question (text) and answer (richText)",
+      "tags": [
+        "block",
+        "faq",
+        "accordion"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Faq.ts:FaqBlock",
+      "type": "variable",
+      "name": "FaqBlock",
+      "filePath": "src/blocks/Faq.ts",
+      "summary": "Payload Block config for FAQs: slug 'faq', richText answers",
+      "tags": [
+        "block",
+        "faq"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Stats.ts",
+      "type": "file",
+      "name": "Stats.ts",
+      "filePath": "src/blocks/Stats.ts",
+      "summary": "Stats block: optional headline, 2-6 metric items with value, label, description",
+      "tags": [
+        "block",
+        "stats",
+        "metrics"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Stats.ts:StatsBlock",
+      "type": "variable",
+      "name": "StatsBlock",
+      "filePath": "src/blocks/Stats.ts",
+      "summary": "Payload Block config for statistics: slug 'stats', 2-6 metrics with value + label",
+      "tags": [
+        "block",
+        "stats"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Team.ts",
+      "type": "file",
+      "name": "Team.ts",
+      "filePath": "src/blocks/Team.ts",
+      "summary": "Team block: headline, subheadline, members array with name, role, photo, bio, social links (LinkedIn/X/Instagram)",
+      "tags": [
+        "block",
+        "team",
+        "social"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Team.ts:TeamBlock",
+      "type": "variable",
+      "name": "TeamBlock",
+      "filePath": "src/blocks/Team.ts",
+      "summary": "Payload Block config for team sections: slug 'team', members with photos and social links",
+      "tags": [
+        "block",
+        "team"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/LogoCloud.ts",
+      "type": "file",
+      "name": "LogoCloud.ts",
+      "filePath": "src/blocks/LogoCloud.ts",
+      "summary": "Logo cloud block: headline, logos array with image + alt + optional URL, optional marquee animation",
+      "tags": [
+        "block",
+        "logo-cloud",
+        "social-proof"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/LogoCloud.ts:LogoCloudBlock",
+      "type": "variable",
+      "name": "LogoCloudBlock",
+      "filePath": "src/blocks/LogoCloud.ts",
+      "summary": "Payload Block config for logo clouds: slug 'logo-cloud', client logo grid with marquee option",
+      "tags": [
+        "block",
+        "logo-cloud"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Gallery.ts",
+      "type": "file",
+      "name": "Gallery.ts",
+      "filePath": "src/blocks/Gallery.ts",
+      "summary": "Gallery block: headline, 3 layouts (masonry/grid/carousel), images array with caption",
+      "tags": [
+        "block",
+        "gallery",
+        "images"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Gallery.ts:GalleryBlock",
+      "type": "variable",
+      "name": "GalleryBlock",
+      "filePath": "src/blocks/Gallery.ts",
+      "summary": "Payload Block config for galleries: slug 'gallery', 3 layout options, images with captions",
+      "tags": [
+        "block",
+        "gallery"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Contact.ts",
+      "type": "file",
+      "name": "Contact.ts",
+      "filePath": "src/blocks/Contact.ts",
+      "summary": "Contact block: headline, subheadline, destinationEmail, configurable form fields (text/email/tel/textarea/select), success message",
+      "tags": [
+        "block",
+        "contact",
+        "form"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Contact.ts:ContactBlock",
+      "type": "variable",
+      "name": "ContactBlock",
+      "filePath": "src/blocks/Contact.ts",
+      "summary": "Payload Block config for contact forms: slug 'contact', dynamic form fields, email destination",
+      "tags": [
+        "block",
+        "contact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/SplitContent.ts",
+      "type": "file",
+      "name": "SplitContent.ts",
+      "filePath": "src/blocks/SplitContent.ts",
+      "summary": "Split content block: headline, richText body, image, imagePosition (left/right), optional CTA button",
+      "tags": [
+        "block",
+        "split-content",
+        "text-image"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/SplitContent.ts:SplitContentBlock",
+      "type": "variable",
+      "name": "SplitContentBlock",
+      "filePath": "src/blocks/SplitContent.ts",
+      "summary": "Payload Block config for split layouts: slug 'split-content', text + image with position toggle",
+      "tags": [
+        "block",
+        "split-content"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/VideoEmbed.ts",
+      "type": "file",
+      "name": "VideoEmbed.ts",
+      "filePath": "src/blocks/VideoEmbed.ts",
+      "summary": "Video embed block: 3 sources (YouTube/Vimeo/direct mp4), video ID, poster image, autoplay, fullWidth toggle",
+      "tags": [
+        "block",
+        "video",
+        "embed"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/VideoEmbed.ts:VideoEmbedBlock",
+      "type": "variable",
+      "name": "VideoEmbedBlock",
+      "filePath": "src/blocks/VideoEmbed.ts",
+      "summary": "Payload Block config for video embeds: slug 'video-embed', YouTube/Vimeo/direct sources",
+      "tags": [
+        "block",
+        "video"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/Newsletter.ts",
+      "type": "file",
+      "name": "Newsletter.ts",
+      "filePath": "src/blocks/Newsletter.ts",
+      "summary": "Newsletter signup block: headline, subheadline, email placeholder, CTA button text, success message, destination email",
+      "tags": [
+        "block",
+        "newsletter",
+        "email",
+        "signup"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/Newsletter.ts:NewsletterBlock",
+      "type": "variable",
+      "name": "NewsletterBlock",
+      "filePath": "src/blocks/Newsletter.ts",
+      "summary": "Payload Block config for newsletter signup: slug 'newsletter', email capture with customizable labels",
+      "tags": [
+        "block",
+        "newsletter"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/blocks/BlogList.ts",
+      "type": "file",
+      "name": "BlogList.ts",
+      "filePath": "src/blocks/BlogList.ts",
+      "summary": "Blog list block: headline, 3 layouts (grid/list/featured), count (1-12), optional 'view all' CTA",
+      "tags": [
+        "block",
+        "blog",
+        "post-list"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:variable:src/blocks/BlogList.ts:BlogListBlock",
+      "type": "variable",
+      "name": "BlogListBlock",
+      "filePath": "src/blocks/BlogList.ts",
+      "summary": "Payload Block config for blog post lists: slug 'blog-list', 3 layout variants, configurable count and CTA",
+      "tags": [
+        "block",
+        "blog-list"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:init-db.ts",
+      "type": "file",
+      "name": "init-db.ts",
+      "filePath": "init-db.ts",
+      "summary": "DB schema init script that boots Payload with getPayload to push Postgres schema then exits, run before next start for first deployment",
+      "tags": [
+        "script",
+        "database",
+        "schema",
+        "init"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:init-db.ts:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "init-db.ts",
+      "summary": "Async function that loads Payload with config to push DB schema, then destroys connection and exits",
+      "tags": [
+        "init",
+        "database",
+        "script"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:multi-tenant",
+      "type": "concept",
+      "name": "Multi-tenant Architecture",
+      "summary": "Plugin-based tenant isolation: each client (tenant) has isolated content, branding config, and user roles. Super-admin can access all tenants.",
+      "tags": [
+        "architecture",
+        "tenancy",
+        "isolation",
+        "plugin"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:block-based-pages",
+      "type": "concept",
+      "name": "Block-Based Page Builder",
+      "summary": "15 reusable content blocks compose pages via Payload blocks field: layout, media, CTA, social-proof, contact, and more",
+      "tags": [
+        "architecture",
+        "blocks",
+        "page-builder",
+        "composable"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:access-control",
+      "type": "concept",
+      "name": "Tenant-Scoped Access Control",
+      "summary": "Three-tier access: super-admin (full), tenant-editor (own tenant), public (published only). Applied via Payload access functions.",
+      "tags": [
+        "architecture",
+        "access",
+        "authorization",
+        "rbac"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:roles-and-permissions",
+      "type": "concept",
+      "name": "Roles and Permissions",
+      "summary": "Two roles: super-admin (cross-tenant, manage tenants/users) and tenant-editor (scoped to one tenant, content management only)",
+      "tags": [
+        "architecture",
+        "roles",
+        "permissions",
+        "rbac"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:storage-and-media",
+      "type": "concept",
+      "name": "Cloud Storage and Media Pipeline",
+      "summary": "Cloudflare R2 S3 storage for media uploads with 3 auto-generated image sizes, public URL generation, media relation across collections",
+      "tags": [
+        "architecture",
+        "storage",
+        "s3",
+        "r2",
+        "images"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/(payload)/admin/[[...segments]]/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/(payload)/admin/[[...segments]]/page.tsx",
+      "summary": "Next.js catch-all admin route rendering Payload RootPage with config, params, and import map",
+      "tags": [
+        "payload",
+        "admin",
+        "nextjs",
+        "route"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(payload)/admin/importMap.js",
+      "type": "file",
+      "name": "importMap.js",
+      "filePath": "src/app/(payload)/admin/importMap.js",
+      "summary": "Auto-generated Payload import map registering richtext-lexical, storage-s3, multi-tenant, and next/rsc client components",
+      "tags": [
+        "payload",
+        "import-map",
+        "auto-generated"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/(payload)/api/[...slug]/route.ts",
+      "type": "file",
+      "name": "route.ts",
+      "filePath": "src/app/(payload)/api/[...slug]/route.ts",
+      "summary": "Catch-all REST API route delegating GET/POST/DELETE/PATCH/PUT/OPTIONS to Payload's nextHandler",
+      "tags": [
+        "payload",
+        "api",
+        "rest",
+        "endpoint"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(payload)/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "src/app/(payload)/layout.tsx",
+      "summary": "Root layout for Payload admin wrapping children in RootLayout with server function handler and import map",
+      "tags": [
+        "payload",
+        "admin",
+        "layout",
+        "nextjs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/not-found.tsx",
+      "type": "file",
+      "name": "not-found.tsx",
+      "filePath": "src/app/not-found.tsx",
+      "summary": "Next.js 404 not-found page rendering 'Página no encontrada' with force-dynamic export",
+      "tags": [
+        "nextjs",
+        "error-page",
+        "404"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/404.js",
+      "type": "file",
+      "name": "404.js",
+      "filePath": "src/pages/404.js",
+      "summary": "Legacy Pages Router custom 404 page with inline styled heading",
+      "tags": [
+        "nextjs",
+        "error-page",
+        "404",
+        "legacy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/pages/500.js",
+      "type": "file",
+      "name": "500.js",
+      "filePath": "src/pages/500.js",
+      "summary": "Legacy Pages Router custom 500 error page with inline styled heading",
+      "tags": [
+        "nextjs",
+        "error-page",
+        "500",
+        "legacy"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:next.config.mjs",
+      "type": "config",
+      "name": "next.config.mjs",
+      "filePath": "next.config.mjs",
+      "summary": "Next.js configuration with withPayload, redirect / → /admin, R2 image remotePatterns, and single-CPU experimental settings",
+      "tags": [
+        "nextjs",
+        "config",
+        "payload"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "Dockerfile",
+      "summary": "Multi-stage Docker build: node:24-alpine base, builder runs importmap gen + next build, slim production runner with next start",
+      "tags": [
+        "deployment",
+        "docker",
+        "coolify",
+        "ci"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": "Environment variable template for DATABASE_URI, PAYLOAD_SECRET, R2 storage, SMTP email, and preview URL",
+      "tags": [
+        "config",
+        "environment",
+        "template"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "Project manifest with Payload 3.x, Next.js 15, React 19, Postgres adapter, multi-tenant plugin, richtext-lexical, storage-s3, and sharp dependencies",
+      "tags": [
+        "config",
+        "dependencies",
+        "payload"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "TypeScript config with bundler module resolution, Next.js plugin, @/* path alias, and @payload-config alias pointing to src/payload.config.ts",
+      "tags": [
+        "config",
+        "typescript",
+        "nextjs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:BLUEPRINT.md",
+      "type": "document",
+      "name": "BLUEPRINT.md",
+      "filePath": "BLUEPRINT.md",
+      "summary": "Full architecture blueprint: multi-tenant Payload CMS, 15-block catalog, collection schema, 10-step build order (setup → foundational → story), deployment diagram, and env variables",
+      "tags": [
+        "docs",
+        "architecture",
+        "blueprint",
+        "plan"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:CONTEXT.md",
+      "type": "document",
+      "name": "CONTEXT.md",
+      "filePath": "CONTEXT.md",
+      "summary": "Session context documenting operational status: admin URL, stack versions, completed features, collection list, Coolify env vars, and next critical step (Step 8)",
+      "tags": [
+        "docs",
+        "context",
+        "status"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:NEXT-SESSION.md",
+      "type": "document",
+      "name": "NEXT-SESSION.md",
+      "filePath": "NEXT-SESSION.md",
+      "summary": "Next session handoff prompt for Step 8: create believe-web-starter repo with Payload API client, BlockRenderer, 15 Flowbite block components, ISR pages, preview/revalidate endpoints, and env template",
+      "tags": [
+        "docs",
+        "handoff",
+        "plan"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:data:public/.gitkeep",
+      "type": "data",
+      "name": ".gitkeep",
+      "filePath": "public/.gitkeep",
+      "summary": "Empty placeholder file keeping public directory tracked in git",
+      "tags": [
+        "git",
+        "placeholder"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:docker-deployment",
+      "type": "concept",
+      "name": "Docker Deployment",
+      "summary": "Multi-stage Docker image: Alpine + full build with Payload importmap generation + production runner with minimal footprint for Coolify VPS",
+      "tags": [
+        "deployment",
+        "docker",
+        "coolify"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "concept:admin-entry",
+      "type": "concept",
+      "name": "Payload Admin Entry",
+      "summary": "Next.js app router entry points (catch-all page + layout) that bootstrap Payload admin UI with import map and server functions",
+      "tags": [
+        "payload",
+        "admin",
+        "nextjs",
+        "entrypoint"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:api-entry",
+      "type": "concept",
+      "name": "Payload REST API Entry",
+      "summary": "Catch-all route delegating all HTTP methods to Payload's nextHandler for headless API access",
+      "tags": [
+        "payload",
+        "api",
+        "rest",
+        "entrypoint"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:error-pages",
+      "type": "concept",
+      "name": "Custom Error Pages",
+      "summary": "Spanish-language 404 and 500 error pages for both App Router (not-found.tsx) and legacy Pages Router (404.js, 500.js)",
+      "tags": [
+        "error",
+        "ux",
+        "spa"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "concept:env-config",
+      "type": "concept",
+      "name": "Environment Configuration",
+      "summary": "Required env vars: Postgres DB URI, Payload secret, R2 S3 storage, Plunk SMTP email, and frontend preview URL",
+      "tags": [
+        "config",
+        "environment",
+        "secrets"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "file:src/collections/Users.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "file:src/collections/Tenants.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "file:src/collections/Media.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "file:src/collections/Pages.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "file:src/collections/Posts.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "file:src/collections/Categories.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "file:variable:src/collections/Users.ts:Users",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Pages.ts",
+      "target": "file:variable:src/blocks/index.ts:allBlocks",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Pages.ts",
+      "target": "file:src/access/byTenant.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Posts.ts",
+      "target": "file:src/access/byTenant.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Media.ts",
+      "target": "file:src/access/byTenant.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Categories.ts",
+      "target": "file:src/access/byTenant.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Hero.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Features.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Pricing.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Testimonials.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Cta.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Faq.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Stats.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Team.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/LogoCloud.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Gallery.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Contact.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/SplitContent.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/VideoEmbed.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/Newsletter.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:src/blocks/BlogList.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:init-db.ts",
+      "target": "file:src/payload.config.ts",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "function:src/payload.config.ts:buildConfig",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/access/byTenant.ts",
+      "target": "function:src/access/byTenant.ts:byTenant",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/access/byTenant.ts",
+      "target": "function:src/access/byTenant.ts:byTenantOrPublished",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Pages.ts",
+      "target": "file:variable:src/collections/Pages.ts:Pages",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Posts.ts",
+      "target": "file:variable:src/collections/Posts.ts:Posts",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Media.ts",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Categories.ts",
+      "target": "file:variable:src/collections/Categories.ts:Categories",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Tenants.ts",
+      "target": "file:variable:src/collections/Tenants.ts:Tenants",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/collections/Users.ts",
+      "target": "file:variable:src/collections/Users.ts:Users",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/index.ts",
+      "target": "file:variable:src/blocks/index.ts:allBlocks",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Hero.ts",
+      "target": "file:variable:src/blocks/Hero.ts:HeroBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Features.ts",
+      "target": "file:variable:src/blocks/Features.ts:FeaturesBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Pricing.ts",
+      "target": "file:variable:src/blocks/Pricing.ts:PricingBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Testimonials.ts",
+      "target": "file:variable:src/blocks/Testimonials.ts:TestimonialsBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Cta.ts",
+      "target": "file:variable:src/blocks/Cta.ts:CtaBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Faq.ts",
+      "target": "file:variable:src/blocks/Faq.ts:FaqBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Stats.ts",
+      "target": "file:variable:src/blocks/Stats.ts:StatsBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Team.ts",
+      "target": "file:variable:src/blocks/Team.ts:TeamBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/LogoCloud.ts",
+      "target": "file:variable:src/blocks/LogoCloud.ts:LogoCloudBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Gallery.ts",
+      "target": "file:variable:src/blocks/Gallery.ts:GalleryBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Contact.ts",
+      "target": "file:variable:src/blocks/Contact.ts:ContactBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/SplitContent.ts",
+      "target": "file:variable:src/blocks/SplitContent.ts:SplitContentBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/VideoEmbed.ts",
+      "target": "file:variable:src/blocks/VideoEmbed.ts:VideoEmbedBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/Newsletter.ts",
+      "target": "file:variable:src/blocks/Newsletter.ts:NewsletterBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/blocks/BlogList.ts",
+      "target": "file:variable:src/blocks/BlogList.ts:BlogListBlock",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:init-db.ts",
+      "target": "function:init-db.ts:run",
+      "type": "contains",
+      "weight": 1,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Hero.ts:HeroBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Features.ts:FeaturesBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Pricing.ts:PricingBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Testimonials.ts:TestimonialsBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Cta.ts:CtaBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Faq.ts:FaqBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Stats.ts:StatsBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Team.ts:TeamBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/LogoCloud.ts:LogoCloudBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Gallery.ts:GalleryBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Contact.ts:ContactBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/SplitContent.ts:SplitContentBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/VideoEmbed.ts:VideoEmbedBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/Newsletter.ts:NewsletterBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/index.ts:allBlocks",
+      "target": "file:variable:src/blocks/BlogList.ts:BlogListBlock",
+      "type": "composes",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src/payload.config.ts:buildConfig",
+      "target": "concept:multi-tenant",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src/payload.config.ts:buildConfig",
+      "target": "concept:storage-and-media",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Pages.ts:Pages",
+      "target": "concept:block-based-pages",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Pages.ts:Pages",
+      "target": "file:variable:src/blocks/index.ts:allBlocks",
+      "type": "uses",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Pages.ts:Pages",
+      "target": "function:src/access/byTenant.ts:byTenant",
+      "type": "uses",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Pages.ts:Pages",
+      "target": "function:src/access/byTenant.ts:byTenantOrPublished",
+      "type": "uses",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Posts.ts:Posts",
+      "target": "function:src/access/byTenant.ts:byTenant",
+      "type": "uses",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Posts.ts:Posts",
+      "target": "function:src/access/byTenant.ts:byTenantOrPublished",
+      "type": "uses",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Posts.ts:Posts",
+      "target": "file:variable:src/collections/Categories.ts:Categories",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Posts.ts:Posts",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Media.ts:Media",
+      "target": "function:src/access/byTenant.ts:byTenant",
+      "type": "uses",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Categories.ts:Categories",
+      "target": "function:src/access/byTenant.ts:byTenant",
+      "type": "uses",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Tenants.ts:Tenants",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Tenants.ts:Tenants",
+      "target": "concept:multi-tenant",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Users.ts:Users",
+      "target": "concept:roles-and-permissions",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Users.ts:Users",
+      "target": "concept:multi-tenant",
+      "type": "supports",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src/access/byTenant.ts:byTenant",
+      "target": "concept:access-control",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src/access/byTenant.ts:byTenantOrPublished",
+      "target": "concept:access-control",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src/access/byTenant.ts:byTenant",
+      "target": "concept:roles-and-permissions",
+      "type": "uses",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src/access/byTenant.ts:byTenantOrPublished",
+      "target": "concept:roles-and-permissions",
+      "type": "uses",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/Hero.ts:HeroBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/Features.ts:FeaturesBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/Testimonials.ts:TestimonialsBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/Team.ts:TeamBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/Gallery.ts:GalleryBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/LogoCloud.ts:LogoCloudBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/SplitContent.ts:SplitContentBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/VideoEmbed.ts:VideoEmbedBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/Cta.ts:CtaBlock",
+      "target": "file:variable:src/collections/Media.ts:Media",
+      "type": "references",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/blocks/Contact.ts:ContactBlock",
+      "target": "concept:access-control",
+      "type": "uses",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "function:src/payload.config.ts:buildConfig",
+      "target": "concept:access-control",
+      "type": "configures",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:multi-tenant",
+      "target": "concept:access-control",
+      "type": "requires",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:multi-tenant",
+      "target": "concept:roles-and-permissions",
+      "type": "requires",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "concept:block-based-pages",
+      "target": "concept:storage-and-media",
+      "type": "depends-on",
+      "weight": 0.4,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Media.ts:Media",
+      "target": "concept:storage-and-media",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Pages.ts:Pages",
+      "target": "concept:multi-tenant",
+      "type": "implements",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Posts.ts:Posts",
+      "target": "concept:multi-tenant",
+      "type": "implements",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:variable:src/collections/Media.ts:Media",
+      "target": "concept:multi-tenant",
+      "type": "implements",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "function:init-db.ts:run",
+      "target": "function:src/payload.config.ts:buildConfig",
+      "type": "calls",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "concept:multi-tenant",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "concept:block-based-pages",
+      "type": "configures",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/payload.config.ts",
+      "target": "concept:storage-and-media",
+      "type": "configures",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/app/(payload)/admin/[[...segments]]/page.tsx",
+      "target": "file:src/app/(payload)/admin/importMap.js",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/app/(payload)/layout.tsx",
+      "target": "file:src/app/(payload)/admin/importMap.js",
+      "type": "imports",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/app/(payload)/layout.tsx",
+      "target": "file:src/app/(payload)/admin/[[...segments]]/page.tsx",
+      "type": "bundles",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/app/(payload)/admin/[[...segments]]/page.tsx",
+      "target": "concept:admin-entry",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/app/(payload)/layout.tsx",
+      "target": "concept:admin-entry",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/app/(payload)/api/[...slug]/route.ts",
+      "target": "concept:api-entry",
+      "type": "implements",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/app/not-found.tsx",
+      "target": "concept:error-pages",
+      "type": "implements",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/pages/404.js",
+      "target": "concept:error-pages",
+      "type": "implements",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "file:src/pages/500.js",
+      "target": "concept:error-pages",
+      "type": "implements",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "concept:docker-deployment",
+      "type": "configures",
+      "weight": 0.9,
+      "direction": "forward"
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "config:next.config.mjs",
+      "type": "bundles",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "config:tsconfig.json",
+      "type": "bundles",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:BLUEPRINT.md",
+      "target": "concept:docker-deployment",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:BLUEPRINT.md",
+      "target": "concept:env-config",
+      "type": "documents",
+      "weight": 0.5,
+      "direction": "forward"
+    },
+    {
+      "source": "document:CONTEXT.md",
+      "target": "document:BLUEPRINT.md",
+      "type": "documents",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "document:NEXT-SESSION.md",
+      "target": "document:BLUEPRINT.md",
+      "type": "documents",
+      "weight": 0.7,
+      "direction": "forward"
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:init-db.ts",
+      "type": "configures",
+      "weight": 0.4,
+      "direction": "forward"
+    },
+    {
+      "source": "config:next.config.mjs",
+      "target": "concept:env-config",
+      "type": "requires",
+      "weight": 0.6,
+      "direction": "forward"
+    },
+    {
+      "source": "config:.env.example",
+      "target": "concept:env-config",
+      "type": "documents",
+      "weight": 0.8,
+      "direction": "forward"
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:src/app/(payload)/admin/importMap.js",
+      "type": "configures",
+      "weight": 0.3,
+      "direction": "forward"
+    },
+    {
+      "source": "file:init-db.ts",
+      "target": "concept:docker-deployment",
+      "type": "implements",
+      "weight": 0.6,
+      "direction": "forward"
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:configuration",
+      "name": "Configuration Layer",
+      "description": "Project configuration files: Next.js, TypeScript, env template, package manifest, and env config concept",
+      "nodeIds": [
+        "config:next.config.mjs",
+        "config:tsconfig.json",
+        "config:package.json",
+        "config:.env.example",
+        "concept:env-config"
+      ]
+    },
+    {
+      "id": "layer:payload-core",
+      "name": "Payload CMS Core",
+      "description": "Main Payload configuration assembling plugins (multi-tenant, storage-s3, richtext-lexical), DB adapter, email, editor, and core architectural concepts",
+      "nodeIds": [
+        "file:src/payload.config.ts",
+        "function:src/payload.config.ts:buildConfig",
+        "concept:multi-tenant",
+        "concept:storage-and-media"
+      ]
+    },
+    {
+      "id": "layer:collections",
+      "name": "Data Collections",
+      "description": "Payload collection schemas defining the data model: Pages, Posts, Media, Categories, Tenants, Users",
+      "nodeIds": [
+        "file:src/collections/Pages.ts",
+        "file:variable:src/collections/Pages.ts:Pages",
+        "file:src/collections/Posts.ts",
+        "file:variable:src/collections/Posts.ts:Posts",
+        "file:src/collections/Media.ts",
+        "file:variable:src/collections/Media.ts:Media",
+        "file:src/collections/Categories.ts",
+        "file:variable:src/collections/Categories.ts:Categories",
+        "file:src/collections/Tenants.ts",
+        "file:variable:src/collections/Tenants.ts:Tenants",
+        "file:src/collections/Users.ts",
+        "file:variable:src/collections/Users.ts:Users"
+      ]
+    },
+    {
+      "id": "layer:blocks",
+      "name": "Content Blocks",
+      "description": "15 reusable block schemas for composable page building (Hero through Newsletter) plus barrel export and page-builder concept",
+      "nodeIds": [
+        "file:src/blocks/index.ts",
+        "file:variable:src/blocks/index.ts:allBlocks",
+        "file:src/blocks/Hero.ts",
+        "file:variable:src/blocks/Hero.ts:HeroBlock",
+        "file:src/blocks/Features.ts",
+        "file:variable:src/blocks/Features.ts:FeaturesBlock",
+        "file:src/blocks/Pricing.ts",
+        "file:variable:src/blocks/Pricing.ts:PricingBlock",
+        "file:src/blocks/Testimonials.ts",
+        "file:variable:src/blocks/Testimonials.ts:TestimonialsBlock",
+        "file:src/blocks/Cta.ts",
+        "file:variable:src/blocks/Cta.ts:CtaBlock",
+        "file:src/blocks/Faq.ts",
+        "file:variable:src/blocks/Faq.ts:FaqBlock",
+        "file:src/blocks/Stats.ts",
+        "file:variable:src/blocks/Stats.ts:StatsBlock",
+        "file:src/blocks/Team.ts",
+        "file:variable:src/blocks/Team.ts:TeamBlock",
+        "file:src/blocks/LogoCloud.ts",
+        "file:variable:src/blocks/LogoCloud.ts:LogoCloudBlock",
+        "file:src/blocks/Gallery.ts",
+        "file:variable:src/blocks/Gallery.ts:GalleryBlock",
+        "file:src/blocks/Contact.ts",
+        "file:variable:src/blocks/Contact.ts:ContactBlock",
+        "file:src/blocks/SplitContent.ts",
+        "file:variable:src/blocks/SplitContent.ts:SplitContentBlock",
+        "file:src/blocks/VideoEmbed.ts",
+        "file:variable:src/blocks/VideoEmbed.ts:VideoEmbedBlock",
+        "file:src/blocks/Newsletter.ts",
+        "file:variable:src/blocks/Newsletter.ts:NewsletterBlock",
+        "file:src/blocks/BlogList.ts",
+        "file:variable:src/blocks/BlogList.ts:BlogListBlock",
+        "concept:block-based-pages"
+      ]
+    },
+    {
+      "id": "layer:access-control",
+      "name": "Access Control",
+      "description": "Tenant-scoped authorization logic: byTenant and byTenantOrPublished functions, RBAC concepts",
+      "nodeIds": [
+        "file:src/access/byTenant.ts",
+        "function:src/access/byTenant.ts:byTenant",
+        "function:src/access/byTenant.ts:byTenantOrPublished",
+        "concept:access-control",
+        "concept:roles-and-permissions"
+      ]
+    },
+    {
+      "id": "layer:admin-entry",
+      "name": "Admin Panel Entry Points",
+      "description": "Next.js App Router routes that bootstrap the Payload admin UI with layout, catch-all page, and import map",
+      "nodeIds": [
+        "file:src/app/(payload)/layout.tsx",
+        "file:src/app/(payload)/admin/[[...segments]]/page.tsx",
+        "file:src/app/(payload)/admin/importMap.js",
+        "concept:admin-entry"
+      ]
+    },
+    {
+      "id": "layer:api",
+      "name": "REST API Layer",
+      "description": "Catch-all API route delegating all HTTP methods to Payload's nextHandler for headless access",
+      "nodeIds": [
+        "file:src/app/(payload)/api/[...slug]/route.ts",
+        "concept:api-entry"
+      ]
+    },
+    {
+      "id": "layer:error-pages",
+      "name": "Error Pages",
+      "description": "Custom 404 and 500 error pages for App Router and legacy Pages Router",
+      "nodeIds": [
+        "file:src/app/not-found.tsx",
+        "file:src/pages/404.js",
+        "file:src/pages/500.js",
+        "concept:error-pages"
+      ]
+    },
+    {
+      "id": "layer:deployment",
+      "name": "Deployment Infrastructure",
+      "description": "Multi-stage Docker build, DB schema init script, and Docker deployment concept for Coolify VPS",
+      "nodeIds": [
+        "service:Dockerfile",
+        "file:init-db.ts",
+        "function:init-db.ts:run",
+        "concept:docker-deployment"
+      ]
+    },
+    {
+      "id": "layer:static-assets",
+      "name": "Static Assets",
+      "description": "Public directory placeholder and static file assets",
+      "nodeIds": [
+        "file:data:public/.gitkeep"
+      ]
+    },
+    {
+      "id": "layer:documentation",
+      "name": "Documentation",
+      "description": "Architecture blueprint, session context, and next-session handoff",
+      "nodeIds": [
+        "document:BLUEPRINT.md",
+        "document:CONTEXT.md",
+        "document:NEXT-SESSION.md"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "Architecture Blueprint",
+      "description": "Start with the BLUEPRINT to understand the vision, architectural decisions, and implementation roadmap for the multi-tenant CMS.",
+      "nodeIds": [
+        "document:BLUEPRINT.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "Payload CMS Configuration",
+      "description": "The central configuration wires together Postgres, S3 storage, multi-tenant plugin, Lexical editor, email, and all 6 collections.",
+      "nodeIds": [
+        "file:src/payload.config.ts",
+        "function:src/payload.config.ts:buildConfig"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "Data Collections",
+      "description": "The 6 collections define the data model: Tenants (clients), Users (editors), Pages, Posts, Media (uploads), and Categories.",
+      "nodeIds": [
+        "file:src/collections/Tenants.ts",
+        "file:src/collections/Users.ts",
+        "file:src/collections/Pages.ts",
+        "file:src/collections/Posts.ts",
+        "file:src/collections/Media.ts",
+        "file:src/collections/Categories.ts"
+      ]
+    },
+    {
+      "order": 4,
+      "title": "Content Blocks",
+      "description": "15 reusable blocks (Hero, Features, Pricing, Testimonials, CTA, FAQ, Stats, Team, LogoCloud, Gallery, Contact, SplitContent, VideoEmbed, Newsletter, BlogList) create a flexible page-building system.",
+      "nodeIds": [
+        "file:src/blocks/index.ts",
+        "file:src/blocks/Hero.ts",
+        "file:src/blocks/Features.ts",
+        "file:src/blocks/Pricing.ts",
+        "file:src/blocks/Testimonials.ts",
+        "file:src/blocks/Cta.ts",
+        "file:src/blocks/Faq.ts",
+        "file:src/blocks/Stats.ts",
+        "file:src/blocks/Team.ts",
+        "file:src/blocks/LogoCloud.ts",
+        "file:src/blocks/Gallery.ts",
+        "file:src/blocks/Contact.ts",
+        "file:src/blocks/SplitContent.ts",
+        "file:src/blocks/VideoEmbed.ts",
+        "file:src/blocks/Newsletter.ts",
+        "file:src/blocks/BlogList.ts"
+      ]
+    },
+    {
+      "order": 5,
+      "title": "Multi-Tenant Access Control",
+      "description": "Tenant-scoped authorization: byTenant filters content per tenant, byTenantOrPublished allows public read for published content.",
+      "nodeIds": [
+        "file:src/access/byTenant.ts",
+        "function:src/access/byTenant.ts:byTenant",
+        "function:src/access/byTenant.ts:byTenantOrPublished",
+        "concept:multi-tenant",
+        "concept:access-control",
+        "concept:roles-and-permissions"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "Admin Panel & API",
+      "description": "The Next.js app hosts the Payload admin panel and REST API routes via catch-all handlers.",
+      "nodeIds": [
+        "file:src/app/(payload)/layout.tsx",
+        "file:src/app/(payload)/admin/[[...segments]]/page.tsx",
+        "file:src/app/(payload)/api/[...slug]/route.ts",
+        "concept:admin-entry",
+        "concept:api-entry"
+      ]
+    },
+    {
+      "order": 7,
+      "title": "Cloud Storage & Media Pipeline",
+      "description": "Cloudflare R2 S3 storage with 3 auto-generated image sizes powers media across all collections and blocks.",
+      "nodeIds": [
+        "concept:storage-and-media",
+        "config:.env.example"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "Deployment & Infrastructure",
+      "description": "Multi-stage Docker build deploys on Coolify VPS. init-db.ts seeds the schema. Next.js config redirects root to /admin.",
+      "nodeIds": [
+        "service:Dockerfile",
+        "file:init-db.ts",
+        "function:init-db.ts:run",
+        "config:next.config.mjs",
+        "concept:docker-deployment",
+        "concept:env-config"
+      ]
+    },
+    {
+      "order": 9,
+      "title": "Next Steps & Frontend",
+      "description": "Step 8 calls for a Next.js + Flowbite frontend starter: block renderer, ISR pages, webhook revalidation, and live preview.",
+      "nodeIds": [
+        "document:CONTEXT.md",
+        "document:NEXT-SESSION.md"
+      ]
+    }
+  ]
+}

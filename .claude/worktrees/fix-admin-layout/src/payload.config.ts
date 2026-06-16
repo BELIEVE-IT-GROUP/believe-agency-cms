@@ -1,35 +1,19 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
-import { seoPlugin } from '@payloadcms/plugin-seo'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
-import path from 'path'
 import sharp from 'sharp'
 
-import { Users } from './collections/Users.ts'
-import { Tenants } from './collections/Tenants.ts'
-import { Media } from './collections/Media.ts'
-import { Pages } from './collections/Pages.ts'
-import { Posts } from './collections/Posts.ts'
-import { Categories } from './collections/Categories.ts'
-import { Settings } from './collections/Settings.ts'
+import { Users } from './collections/Users'
+import { Tenants } from './collections/Tenants'
+import { Media } from './collections/Media'
+import { Pages } from './collections/Pages'
+import { Posts } from './collections/Posts'
+import { Categories } from './collections/Categories'
 
-const createPayloadConfig = async () => {
-  const { lexicalEditor } = await import('@payloadcms/richtext-lexical')
-
-  return buildConfig({
-  bin: [
-    {
-      key: 'bootstrap:settings',
-      scriptPath: path.resolve(process.cwd(), 'scripts/bootstrap-settings.mjs'),
-    },
-    {
-      key: 'bootstrap:tenant-content',
-      scriptPath: path.resolve(process.cwd(), 'scripts/bootstrap-tenant-content.mjs'),
-    },
-  ],
-
+export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
@@ -55,7 +39,7 @@ const createPayloadConfig = async () => {
     },
   },
 
-  collections: [Users, Tenants, Media, Pages, Posts, Categories, Settings],
+  collections: [Users, Tenants, Media, Pages, Posts, Categories],
 
   editor: lexicalEditor({}),
 
@@ -110,17 +94,9 @@ const createPayloadConfig = async () => {
         posts: {},
         media: {},
         categories: {},
-        settings: {},
       },
       userHasAccessToAllTenants: (user) =>
         Boolean(user?.roles?.includes('super-admin')),
-    }),
-
-    seoPlugin({
-      collections: ['pages', 'posts'],
-      uploadsCollection: 'media',
-      generateTitle: ({ doc }) => doc?.title,
-      generateDescription: ({ doc }) => doc?.excerpt || doc?.title,
     }),
   ],
 
@@ -132,6 +108,3 @@ const createPayloadConfig = async () => {
     outputFile: './src/payload-types.ts',
   },
 })
-}
-
-export default createPayloadConfig()

@@ -71,7 +71,6 @@ export interface Config {
     tenants: Tenant;
     media: Media;
     pages: Page;
-    landings: Landing;
     posts: Post;
     categories: Category;
     settings: Setting;
@@ -86,7 +85,6 @@ export interface Config {
     tenants: TenantsSelect<false> | TenantsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
-    landings: LandingsSelect<false> | LandingsSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     settings: SettingsSelect<false> | SettingsSelect<true>;
@@ -277,8 +275,7 @@ export interface Page {
               | 'hero.storefront-default'
               | 'hero.storefront-background-image'
               | 'hero.storefront-full-slider'
-              | 'hero.storefront-grid-view'
-              | 'hero.custom';
+              | 'hero.storefront-grid-view';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -298,16 +295,8 @@ export interface Page {
               customClassName?: string | null;
             };
             variant?: ('centered' | 'split' | 'video' | 'image-bg') | null;
-            eyebrow?: string | null;
             headline: string;
             subheadline?: string | null;
-            stats?:
-              | {
-                  value?: string | null;
-                  label?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
             ctas?:
               | {
                   text: string;
@@ -337,8 +326,7 @@ export interface Page {
               | 'features.card-list'
               | 'features.alternate'
               | 'features.comparison'
-              | 'features.rounded-icons'
-              | 'features.custom';
+              | 'features.rounded-icons';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -357,7 +345,6 @@ export interface Page {
                */
               customClassName?: string | null;
             };
-            eyebrow?: string | null;
             headline?: string | null;
             subheadline?: string | null;
             layout?: ('grid-3' | 'grid-2' | 'list' | 'alternating') | null;
@@ -365,7 +352,6 @@ export interface Page {
               icon?: string | null;
               title: string;
               description: string;
-              code?: string | null;
               image?: (number | null) | Media;
               id?: string | null;
             }[];
@@ -384,8 +370,7 @@ export interface Page {
               | 'pricing.feature-list'
               | 'pricing.comparison-table'
               | 'pricing.highlighted-plan'
-              | 'pricing.toggle'
-              | 'pricing.custom';
+              | 'pricing.toggle';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -441,8 +426,7 @@ export interface Page {
               | 'testimonials.carousel-slider'
               | 'testimonials.grid-layout-cards'
               | 'testimonials.cards'
-              | 'testimonials.tabs'
-              | 'testimonials.custom';
+              | 'testimonials.tabs';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -469,7 +453,6 @@ export interface Page {
               company?: string | null;
               photo?: (number | null) | Media;
               quote: string;
-              metric?: string | null;
               rating?: number | null;
               id?: string | null;
             }[];
@@ -494,8 +477,7 @@ export interface Page {
               | 'cta.two-cards'
               | 'cta.banner-default'
               | 'cta.banner-announcement'
-              | 'cta.banner-launch'
-              | 'cta.custom';
+              | 'cta.banner-launch';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -514,7 +496,6 @@ export interface Page {
                */
               customClassName?: string | null;
             };
-            eyebrow?: string | null;
             headline: string;
             subheadline?: string | null;
             variant?: ('banner' | 'card' | 'split') | null;
@@ -527,18 +508,6 @@ export interface Page {
                 }[]
               | null;
             backgroundImage?: (number | null) | Media;
-            formEnabled?: boolean | null;
-            formFields?:
-              | {
-                  fieldName?: string | null;
-                  label?: string | null;
-                  type?: ('text' | 'email' | 'tel' | 'textarea') | null;
-                  required?: boolean | null;
-                  placeholder?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            formDestinationEmail?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'cta';
@@ -553,8 +522,7 @@ export interface Page {
               | 'faq.grid-layout'
               | 'faq.help-center'
               | 'faq.help-center-search'
-              | 'faq.customer-service'
-              | 'faq.custom';
+              | 'faq.customer-service';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -609,8 +577,7 @@ export interface Page {
               | 'stats.heading-statistics'
               | 'stats.icon-statistics'
               | 'stats.illustration'
-              | 'stats.content-social-proof'
-              | 'stats.custom';
+              | 'stats.content-social-proof';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -629,10 +596,8 @@ export interface Page {
                */
               customClassName?: string | null;
             };
-            eyebrow?: string | null;
             headline?: string | null;
             items: {
-              icon?: string | null;
               value: string;
               label: string;
               description?: string | null;
@@ -654,8 +619,7 @@ export interface Page {
               | 'team.four-columns'
               | 'team.grid-cards'
               | 'team.grid-clean'
-              | 'team.overlay-zoom'
-              | 'team.custom';
+              | 'team.overlay-zoom';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -701,8 +665,7 @@ export interface Page {
               | 'logo-cloud.4-columns'
               | 'logo-cloud.cards-cta'
               | 'logo-cloud.cards-description'
-              | 'logo-cloud.heading-grid'
-              | 'logo-cloud.custom';
+              | 'logo-cloud.heading-grid';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -743,8 +706,7 @@ export interface Page {
               | 'gallery.portfolio-alternate'
               | 'gallery.portfolio-carousel'
               | 'gallery.portfolio-featured-image'
-              | 'gallery.portfolio-grid-layout'
-              | 'gallery.custom';
+              | 'gallery.portfolio-grid-layout';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -784,8 +746,7 @@ export interface Page {
               | 'contact.background-image'
               | 'contact.company-information'
               | 'contact.help-center'
-              | 'contact.links'
-              | 'contact.custom';
+              | 'contact.links';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -839,8 +800,7 @@ export interface Page {
               | 'split-content.heading-images'
               | 'split-content.feature-list'
               | 'split-content.card-images'
-              | 'split-content.table-contents'
-              | 'split-content.custom';
+              | 'split-content.table-contents';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -859,7 +819,6 @@ export interface Page {
                */
               customClassName?: string | null;
             };
-            eyebrow?: string | null;
             headline: string;
             body: {
               root: {
@@ -882,14 +841,6 @@ export interface Page {
               text?: string | null;
               url?: string | null;
             };
-            ctas?:
-              | {
-                  text?: string | null;
-                  url?: string | null;
-                  style?: ('primary' | 'secondary' | 'outline') | null;
-                  id?: string | null;
-                }[]
-              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'split-content';
@@ -898,11 +849,7 @@ export interface Page {
             /**
              * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
              */
-            templateId:
-              | 'video-embed.content-video'
-              | 'video-embed.hero-video-cta'
-              | 'video-embed.hero-email-video'
-              | 'video-embed.custom';
+            templateId: 'video-embed.content-video' | 'video-embed.hero-video-cta' | 'video-embed.hero-email-video';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -941,8 +888,7 @@ export interface Page {
               | 'newsletter.banner'
               | 'newsletter.email-signup-card'
               | 'newsletter.modal-signup'
-              | 'newsletter.popup-email'
-              | 'newsletter.custom';
+              | 'newsletter.popup-email';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -984,8 +930,7 @@ export interface Page {
               | 'blog-list.publisher-related-default'
               | 'blog-list.publisher-related-grid'
               | 'blog-list.publisher-related-carousel'
-              | 'blog-list.publisher-related-horizontal'
-              | 'blog-list.custom';
+              | 'blog-list.publisher-related-horizontal';
             /**
              * Opciones compartidas para adaptar el bloque al sitio del tenant.
              */
@@ -1015,377 +960,6 @@ export interface Page {
             blockName?: string | null;
             blockType: 'blog-list';
           }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'pain.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            subheadline?: string | null;
-            variant?: ('cards' | 'statement') | null;
-            cards?:
-              | {
-                  title?: string | null;
-                  description?: string | null;
-                  data?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'pain';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'steps.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            subheadline?: string | null;
-            variant?: ('linear' | 'vertical' | 'grid') | null;
-            items?:
-              | {
-                  number?: string | null;
-                  title?: string | null;
-                  description?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'steps';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'dashboard-panel.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            title?: string | null;
-            live?: boolean | null;
-            kpis?:
-              | {
-                  label?: string | null;
-                  value?: string | null;
-                  delta?: string | null;
-                  deltaDir?: ('up' | 'down' | 'warn') | null;
-                  id?: string | null;
-                }[]
-              | null;
-            chartLabel?: string | null;
-            chartDelta?: string | null;
-            chartTone?: ('cost' | 'delivery') | null;
-            tracking?:
-              | {
-                  id?: string | null;
-                  dest?: string | null;
-                  status?: string | null;
-                  statusType?: ('ok' | 'go') | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'dashboard-panel';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'solutions-list.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            items?:
-              | {
-                  title?: string | null;
-                  body?: string | null;
-                  chips?:
-                    | {
-                        label?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'solutions-list';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'industries-pills.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            items?:
-              | {
-                  label?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'industries-pills';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'benefits-grid.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            items?:
-              | {
-                  label?: string | null;
-                  description?: string | null;
-                  direction?: ('up' | 'down') | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'benefits-grid';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'case-studies.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            disclaimer?: string | null;
-            cases?:
-              | {
-                  industry?: string | null;
-                  problem?: string | null;
-                  solution?: string | null;
-                  results?:
-                    | {
-                        value?: string | null;
-                        label?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'case-studies';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'savings-calculator.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            lead?: string | null;
-            fields?:
-              | {
-                  fieldId?: string | null;
-                  label?: string | null;
-                  prefix?: string | null;
-                  defaultValue?: string | null;
-                  hint?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            rate?: number | null;
-            outputAnnualLabel?: string | null;
-            outputSaveLabel?: string | null;
-            ctaText?: string | null;
-            ctaUrl?: string | null;
-            assumptionNote?: string | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'savings-calculator';
-          }
-        | {
-            /**
-             * Variante visual del catálogo Flowbite React Blocks que usará el frontend.
-             */
-            templateId: 'resource-cards.custom';
-            /**
-             * Opciones compartidas para adaptar el bloque al sitio del tenant.
-             */
-            appearance?: {
-              background?: ('default' | 'white' | 'gray' | 'primary' | 'dark' | 'image') | null;
-              container?: ('default' | 'md' | 'lg' | 'xl' | '2xl' | 'full') | null;
-              spacingTop?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              spacingBottom?: ('default' | 'none' | 'sm' | 'md' | 'lg') | null;
-              alignment?: ('default' | 'left' | 'center' | 'right') | null;
-              /**
-               * Opcional. Útil para anchors y navegación.
-               */
-              sectionId?: string | null;
-              /**
-               * Uso avanzado. El frontend puede ignorarlo si no está permitido.
-               */
-              customClassName?: string | null;
-            };
-            eyebrow?: string | null;
-            headline: string;
-            items?:
-              | {
-                  type?: string | null;
-                  title?: string | null;
-                  description?: string | null;
-                  ctaText?: string | null;
-                  url?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'resource-cards';
-          }
       )[]
     | null;
   meta?: {
@@ -1395,366 +969,6 @@ export interface Page {
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
      */
     image?: (number | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * Landings standalone con contenido editable campo por campo (espeja BirdmanContent).
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "landings".
- */
-export interface Landing {
-  id: number;
-  tenant?: (number | null) | Tenant;
-  title?: string | null;
-  /**
-   * Identificador de la landing. Ej: "birdman".
-   */
-  slug: string;
-  /**
-   * Espeja BirdmanContent. Todo es opcional: lo que dejes vacío cae al default del frontend.
-   */
-  content?: {
-    meta?: {
-      title?: string | null;
-      description?: string | null;
-    };
-    nav?: {
-      brand?: string | null;
-      links?:
-        | {
-            label?: string | null;
-            href?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-      cta?: {
-        label?: string | null;
-        href?: string | null;
-        style?: ('primary' | 'ghost') | null;
-      };
-    };
-    hero?: {
-      tag?: string | null;
-      headlineBefore?: string | null;
-      headlineEm?: string | null;
-      headlineAfter?: string | null;
-      sub?: string | null;
-      ctas?:
-        | {
-            label?: string | null;
-            href?: string | null;
-            style?: ('primary' | 'ghost') | null;
-            id?: string | null;
-          }[]
-        | null;
-      note?: string | null;
-      noteStrong?: string | null;
-      panel?: {
-        ttl?: string | null;
-        live?: string | null;
-        kpis?:
-          | {
-              k?: string | null;
-              v?: string | null;
-              d?: string | null;
-              warn?: boolean | null;
-              id?: string | null;
-            }[]
-          | null;
-        chart?: {
-          label?: string | null;
-          delta?: string | null;
-        };
-        tracking?:
-          | {
-              id?: string | null;
-              dest?: string | null;
-              status?: string | null;
-              type?: ('ok' | 'go') | null;
-            }[]
-          | null;
-      };
-    };
-    queHacemos?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      lead?: string | null;
-      items?:
-        | {
-            title?: string | null;
-            desc?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    problemas?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      lead?: string | null;
-      items?:
-        | {
-            value?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-      ctaBand?: {
-        text?: string | null;
-        cta?: {
-          label?: string | null;
-          href?: string | null;
-          style?: ('primary' | 'ghost') | null;
-        };
-      };
-    };
-    soluciones?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      items?:
-        | {
-            title?: string | null;
-            body?: string | null;
-            chips?:
-              | {
-                  value?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    industrias?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      items?:
-        | {
-            value?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    beneficios?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      items?:
-        | {
-            label?: string | null;
-            desc?: string | null;
-            dir?: ('up' | 'down') | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    tecnologia?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      lead?: string | null;
-      ticks?:
-        | {
-            value?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-      panel?: {
-        ttl?: string | null;
-        live?: string | null;
-        kpis?:
-          | {
-              k?: string | null;
-              v?: string | null;
-              d?: string | null;
-              warn?: boolean | null;
-              id?: string | null;
-            }[]
-          | null;
-        chart?: {
-          label?: string | null;
-          delta?: string | null;
-        };
-        tracking?:
-          | {
-              id?: string | null;
-              dest?: string | null;
-              status?: string | null;
-              type?: ('ok' | 'go') | null;
-            }[]
-          | null;
-      };
-    };
-    metodologia?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      steps?:
-        | {
-            value?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    casos?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      items?:
-        | {
-            industry?: string | null;
-            problem?: string | null;
-            solution?: string | null;
-            results?:
-              | {
-                  n?: string | null;
-                  l?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-          }[]
-        | null;
-      disclaimer?: string | null;
-    };
-    calculadora?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      lead?: string | null;
-      fields?: {
-        enviosLabel?: string | null;
-        enviosDefault?: string | null;
-        costoLabel?: string | null;
-        costoDefault?: string | null;
-        opsLabel?: string | null;
-        opsDefault?: string | null;
-        opsHint?: string | null;
-      };
-      rate?: number | null;
-      labels?: {
-        annualK?: string | null;
-        saveK?: string | null;
-        perBefore?: string | null;
-        perAfter?: string | null;
-      };
-      assume?: string | null;
-      cta?: {
-        label?: string | null;
-        href?: string | null;
-        style?: ('primary' | 'ghost') | null;
-      };
-    };
-    diagnostico?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      lead?: string | null;
-      ticks?:
-        | {
-            value?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-      form?: {
-        empresaLabel?: string | null;
-        empresaPlaceholder?: string | null;
-        empresaError?: string | null;
-        industriaLabel?: string | null;
-        industriaPlaceholder?: string | null;
-        industriaOptions?:
-          | {
-              value?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        industriaError?: string | null;
-        volumenLabel?: string | null;
-        volumenPlaceholder?: string | null;
-        volumenOptions?:
-          | {
-              value?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        volumenError?: string | null;
-        estadoLabel?: string | null;
-        estadoPlaceholder?: string | null;
-        estadoError?: string | null;
-        correoLabel?: string | null;
-        correoPlaceholder?: string | null;
-        correoError?: string | null;
-        telLabel?: string | null;
-        telPlaceholder?: string | null;
-        telError?: string | null;
-        submit?: string | null;
-        legal?: string | null;
-        success?: {
-          title?: string | null;
-          text?: string | null;
-        };
-      };
-    };
-    recursos?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      items?:
-        | {
-            type?: string | null;
-            title?: string | null;
-            desc?: string | null;
-            cta?: string | null;
-            href?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    blog?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      items?:
-        | {
-            type?: string | null;
-            title?: string | null;
-            desc?: string | null;
-            href?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    faq?: {
-      eyebrow?: string | null;
-      title?: string | null;
-      items?:
-        | {
-            q?: string | null;
-            a?: string | null;
-            open?: boolean | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    footer?: {
-      brandText?: string | null;
-      columns?:
-        | {
-            title?: string | null;
-            links?:
-              | {
-                  label?: string | null;
-                  href?: string | null;
-                  id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-          }[]
-        | null;
-      brands?:
-        | {
-            value?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-      copyright?: string | null;
-      waLabel?: string | null;
-      waHref?: string | null;
-    };
   };
   updatedAt: string;
   createdAt: string;
@@ -1845,8 +1059,7 @@ export interface Setting {
       | 'header.mega-menu'
       | 'header.search'
       | 'header.sub-navbar'
-      | 'header.user-dropdown'
-      | 'header.custom';
+      | 'header.user-dropdown';
     logo?: (number | null) | Media;
     navLinks?:
       | {
@@ -1869,8 +1082,7 @@ export interface Setting {
       | 'footer.pre-footer-cta'
       | 'footer.sitemap-links'
       | 'footer.sitemap-logo'
-      | 'footer.social-media'
-      | 'footer.custom';
+      | 'footer.social-media';
     text?: string | null;
     links?:
       | {
@@ -1976,10 +1188,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
-      } | null)
-    | ({
-        relationTo: 'landings';
-        value: number | Landing;
       } | null)
     | ({
         relationTo: 'posts';
@@ -2161,16 +1369,8 @@ export interface PagesSelect<T extends boolean = true> {
                     customClassName?: T;
                   };
               variant?: T;
-              eyebrow?: T;
               headline?: T;
               subheadline?: T;
-              stats?:
-                | T
-                | {
-                    value?: T;
-                    label?: T;
-                    id?: T;
-                  };
               ctas?:
                 | T
                 | {
@@ -2200,7 +1400,6 @@ export interface PagesSelect<T extends boolean = true> {
                     sectionId?: T;
                     customClassName?: T;
                   };
-              eyebrow?: T;
               headline?: T;
               subheadline?: T;
               layout?: T;
@@ -2210,7 +1409,6 @@ export interface PagesSelect<T extends boolean = true> {
                     icon?: T;
                     title?: T;
                     description?: T;
-                    code?: T;
                     image?: T;
                     id?: T;
                   };
@@ -2286,7 +1484,6 @@ export interface PagesSelect<T extends boolean = true> {
                     company?: T;
                     photo?: T;
                     quote?: T;
-                    metric?: T;
                     rating?: T;
                     id?: T;
                   };
@@ -2308,7 +1505,6 @@ export interface PagesSelect<T extends boolean = true> {
                     sectionId?: T;
                     customClassName?: T;
                   };
-              eyebrow?: T;
               headline?: T;
               subheadline?: T;
               variant?: T;
@@ -2321,18 +1517,6 @@ export interface PagesSelect<T extends boolean = true> {
                     id?: T;
                   };
               backgroundImage?: T;
-              formEnabled?: T;
-              formFields?:
-                | T
-                | {
-                    fieldName?: T;
-                    label?: T;
-                    type?: T;
-                    required?: T;
-                    placeholder?: T;
-                    id?: T;
-                  };
-              formDestinationEmail?: T;
               id?: T;
               blockName?: T;
             };
@@ -2378,12 +1562,10 @@ export interface PagesSelect<T extends boolean = true> {
                     sectionId?: T;
                     customClassName?: T;
                   };
-              eyebrow?: T;
               headline?: T;
               items?:
                 | T
                 | {
-                    icon?: T;
                     value?: T;
                     label?: T;
                     description?: T;
@@ -2537,7 +1719,6 @@ export interface PagesSelect<T extends boolean = true> {
                     sectionId?: T;
                     customClassName?: T;
                   };
-              eyebrow?: T;
               headline?: T;
               body?: T;
               image?: T;
@@ -2547,14 +1728,6 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     text?: T;
                     url?: T;
-                  };
-              ctas?:
-                | T
-                | {
-                    text?: T;
-                    url?: T;
-                    style?: T;
-                    id?: T;
                   };
               id?: T;
               blockName?: T;
@@ -2635,296 +1808,6 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
-        pain?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              subheadline?: T;
-              variant?: T;
-              cards?:
-                | T
-                | {
-                    title?: T;
-                    description?: T;
-                    data?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        steps?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              subheadline?: T;
-              variant?: T;
-              items?:
-                | T
-                | {
-                    number?: T;
-                    title?: T;
-                    description?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        'dashboard-panel'?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              title?: T;
-              live?: T;
-              kpis?:
-                | T
-                | {
-                    label?: T;
-                    value?: T;
-                    delta?: T;
-                    deltaDir?: T;
-                    id?: T;
-                  };
-              chartLabel?: T;
-              chartDelta?: T;
-              chartTone?: T;
-              tracking?:
-                | T
-                | {
-                    id?: T;
-                    dest?: T;
-                    status?: T;
-                    statusType?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        'solutions-list'?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              items?:
-                | T
-                | {
-                    title?: T;
-                    body?: T;
-                    chips?:
-                      | T
-                      | {
-                          label?: T;
-                          id?: T;
-                        };
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        'industries-pills'?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              items?:
-                | T
-                | {
-                    label?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        'benefits-grid'?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              items?:
-                | T
-                | {
-                    label?: T;
-                    description?: T;
-                    direction?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        'case-studies'?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              disclaimer?: T;
-              cases?:
-                | T
-                | {
-                    industry?: T;
-                    problem?: T;
-                    solution?: T;
-                    results?:
-                      | T
-                      | {
-                          value?: T;
-                          label?: T;
-                          id?: T;
-                        };
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        'savings-calculator'?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              lead?: T;
-              fields?:
-                | T
-                | {
-                    fieldId?: T;
-                    label?: T;
-                    prefix?: T;
-                    defaultValue?: T;
-                    hint?: T;
-                    id?: T;
-                  };
-              rate?: T;
-              outputAnnualLabel?: T;
-              outputSaveLabel?: T;
-              ctaText?: T;
-              ctaUrl?: T;
-              assumptionNote?: T;
-              id?: T;
-              blockName?: T;
-            };
-        'resource-cards'?:
-          | T
-          | {
-              templateId?: T;
-              appearance?:
-                | T
-                | {
-                    background?: T;
-                    container?: T;
-                    spacingTop?: T;
-                    spacingBottom?: T;
-                    alignment?: T;
-                    sectionId?: T;
-                    customClassName?: T;
-                  };
-              eyebrow?: T;
-              headline?: T;
-              items?:
-                | T
-                | {
-                    type?: T;
-                    title?: T;
-                    description?: T;
-                    ctaText?: T;
-                    url?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
       };
   meta?:
     | T
@@ -2932,417 +1815,6 @@ export interface PagesSelect<T extends boolean = true> {
         title?: T;
         description?: T;
         image?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "landings_select".
- */
-export interface LandingsSelect<T extends boolean = true> {
-  tenant?: T;
-  title?: T;
-  slug?: T;
-  content?:
-    | T
-    | {
-        meta?:
-          | T
-          | {
-              title?: T;
-              description?: T;
-            };
-        nav?:
-          | T
-          | {
-              brand?: T;
-              links?:
-                | T
-                | {
-                    label?: T;
-                    href?: T;
-                    id?: T;
-                  };
-              cta?:
-                | T
-                | {
-                    label?: T;
-                    href?: T;
-                    style?: T;
-                  };
-            };
-        hero?:
-          | T
-          | {
-              tag?: T;
-              headlineBefore?: T;
-              headlineEm?: T;
-              headlineAfter?: T;
-              sub?: T;
-              ctas?:
-                | T
-                | {
-                    label?: T;
-                    href?: T;
-                    style?: T;
-                    id?: T;
-                  };
-              note?: T;
-              noteStrong?: T;
-              panel?:
-                | T
-                | {
-                    ttl?: T;
-                    live?: T;
-                    kpis?:
-                      | T
-                      | {
-                          k?: T;
-                          v?: T;
-                          d?: T;
-                          warn?: T;
-                          id?: T;
-                        };
-                    chart?:
-                      | T
-                      | {
-                          label?: T;
-                          delta?: T;
-                        };
-                    tracking?:
-                      | T
-                      | {
-                          id?: T;
-                          dest?: T;
-                          status?: T;
-                          type?: T;
-                        };
-                  };
-            };
-        queHacemos?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              lead?: T;
-              items?:
-                | T
-                | {
-                    title?: T;
-                    desc?: T;
-                    id?: T;
-                  };
-            };
-        problemas?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              lead?: T;
-              items?:
-                | T
-                | {
-                    value?: T;
-                    id?: T;
-                  };
-              ctaBand?:
-                | T
-                | {
-                    text?: T;
-                    cta?:
-                      | T
-                      | {
-                          label?: T;
-                          href?: T;
-                          style?: T;
-                        };
-                  };
-            };
-        soluciones?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              items?:
-                | T
-                | {
-                    title?: T;
-                    body?: T;
-                    chips?:
-                      | T
-                      | {
-                          value?: T;
-                          id?: T;
-                        };
-                    id?: T;
-                  };
-            };
-        industrias?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              items?:
-                | T
-                | {
-                    value?: T;
-                    id?: T;
-                  };
-            };
-        beneficios?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              items?:
-                | T
-                | {
-                    label?: T;
-                    desc?: T;
-                    dir?: T;
-                    id?: T;
-                  };
-            };
-        tecnologia?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              lead?: T;
-              ticks?:
-                | T
-                | {
-                    value?: T;
-                    id?: T;
-                  };
-              panel?:
-                | T
-                | {
-                    ttl?: T;
-                    live?: T;
-                    kpis?:
-                      | T
-                      | {
-                          k?: T;
-                          v?: T;
-                          d?: T;
-                          warn?: T;
-                          id?: T;
-                        };
-                    chart?:
-                      | T
-                      | {
-                          label?: T;
-                          delta?: T;
-                        };
-                    tracking?:
-                      | T
-                      | {
-                          id?: T;
-                          dest?: T;
-                          status?: T;
-                          type?: T;
-                        };
-                  };
-            };
-        metodologia?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              steps?:
-                | T
-                | {
-                    value?: T;
-                    id?: T;
-                  };
-            };
-        casos?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              items?:
-                | T
-                | {
-                    industry?: T;
-                    problem?: T;
-                    solution?: T;
-                    results?:
-                      | T
-                      | {
-                          n?: T;
-                          l?: T;
-                          id?: T;
-                        };
-                    id?: T;
-                  };
-              disclaimer?: T;
-            };
-        calculadora?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              lead?: T;
-              fields?:
-                | T
-                | {
-                    enviosLabel?: T;
-                    enviosDefault?: T;
-                    costoLabel?: T;
-                    costoDefault?: T;
-                    opsLabel?: T;
-                    opsDefault?: T;
-                    opsHint?: T;
-                  };
-              rate?: T;
-              labels?:
-                | T
-                | {
-                    annualK?: T;
-                    saveK?: T;
-                    perBefore?: T;
-                    perAfter?: T;
-                  };
-              assume?: T;
-              cta?:
-                | T
-                | {
-                    label?: T;
-                    href?: T;
-                    style?: T;
-                  };
-            };
-        diagnostico?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              lead?: T;
-              ticks?:
-                | T
-                | {
-                    value?: T;
-                    id?: T;
-                  };
-              form?:
-                | T
-                | {
-                    empresaLabel?: T;
-                    empresaPlaceholder?: T;
-                    empresaError?: T;
-                    industriaLabel?: T;
-                    industriaPlaceholder?: T;
-                    industriaOptions?:
-                      | T
-                      | {
-                          value?: T;
-                          id?: T;
-                        };
-                    industriaError?: T;
-                    volumenLabel?: T;
-                    volumenPlaceholder?: T;
-                    volumenOptions?:
-                      | T
-                      | {
-                          value?: T;
-                          id?: T;
-                        };
-                    volumenError?: T;
-                    estadoLabel?: T;
-                    estadoPlaceholder?: T;
-                    estadoError?: T;
-                    correoLabel?: T;
-                    correoPlaceholder?: T;
-                    correoError?: T;
-                    telLabel?: T;
-                    telPlaceholder?: T;
-                    telError?: T;
-                    submit?: T;
-                    legal?: T;
-                    success?:
-                      | T
-                      | {
-                          title?: T;
-                          text?: T;
-                        };
-                  };
-            };
-        recursos?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              items?:
-                | T
-                | {
-                    type?: T;
-                    title?: T;
-                    desc?: T;
-                    cta?: T;
-                    href?: T;
-                    id?: T;
-                  };
-            };
-        blog?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              items?:
-                | T
-                | {
-                    type?: T;
-                    title?: T;
-                    desc?: T;
-                    href?: T;
-                    id?: T;
-                  };
-            };
-        faq?:
-          | T
-          | {
-              eyebrow?: T;
-              title?: T;
-              items?:
-                | T
-                | {
-                    q?: T;
-                    a?: T;
-                    open?: T;
-                    id?: T;
-                  };
-            };
-        footer?:
-          | T
-          | {
-              brandText?: T;
-              columns?:
-                | T
-                | {
-                    title?: T;
-                    links?:
-                      | T
-                      | {
-                          label?: T;
-                          href?: T;
-                          id?: T;
-                        };
-                    id?: T;
-                  };
-              brands?:
-                | T
-                | {
-                    value?: T;
-                    id?: T;
-                  };
-              copyright?: T;
-              waLabel?: T;
-              waHref?: T;
-            };
       };
   updatedAt?: T;
   createdAt?: T;

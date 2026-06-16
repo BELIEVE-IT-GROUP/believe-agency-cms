@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.env
+.env.local
+media/
+dist/
+*.tsbuildinfo
+
+# Keep migrations
+!migrations/
+node_modules/
+package-lock.json
+next-env.d.ts
+.gstack/

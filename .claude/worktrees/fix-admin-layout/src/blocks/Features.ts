@@ -1,12 +1,9 @@
 import type { Block } from 'payload'
-import { flowbiteAppearanceField, flowbiteTemplateField } from '../flowbite/payloadFields.ts'
 
 export const FeaturesBlock: Block = {
   slug: 'features',
   labels: { singular: 'Features', plural: 'Features' },
   fields: [
-    flowbiteTemplateField('features'),
-    flowbiteAppearanceField(),
     { name: 'headline', type: 'text', label: 'Título de sección' },
     { name: 'subheadline', type: 'textarea', label: 'Subtítulo' },
     {
