@@ -1,0 +1,68 @@
+src/blocks/CaseStudies.ts
+  s_4168ee688cda0f::t_474749b659c827 1-33
+src/blocks/BenefitsGrid.ts
+  s_4168ee688cda0f::t_ccc4ae4674455b 1-31
+src/blocks/Features.ts
+  s_4168ee688cda0f::t_b0f7b76e12deed 10
+  s_4168ee688cda0f::t_0aabe2e770377b 33
+src/blocks/Stats.ts
+  s_4168ee688cda0f::t_12b5dd9b3b07a0 20
+  s_4168ee688cda0f::t_7f17069c9cd024 10
+src/blocks/SolutionsList.ts
+  s_4168ee688cda0f::t_5d4b8979c8b1c4 1-28
+src/blocks/IndustriesPills.ts
+  s_4168ee688cda0f::t_8961defd400adc 1-19
+src/blocks/Cta.ts
+  s_4168ee688cda0f::t_179108c3f89737 35-57
+  s_4168ee688cda0f::t_92b5a023511161 10
+src/payload.config.ts
+  s_4168ee688cda0f::t_1e8e2bf6bd6806 58
+  s_4168ee688cda0f::t_afe484c061a85a 13
+  s_4168ee688cda0f::t_010eabb8e375f5 110
+src/blocks/DashboardPanel.ts
+  s_4168ee688cda0f::t_a7e4674b77b2a6 1-63
+src/collections/Landings.ts
+  s_4168ee688cda0f::t_ec84247a5a69e3 1-555
+src/blocks/Hero.ts
+  s_4168ee688cda0f::t_634295ad6a2c14 21,24-33
+src/flowbite/registry.ts
+  s_4168ee688cda0f::t_3798be775d732a 19-25
+  s_4168ee688cda0f::t_fbda982f4cbbb9 17-18
+  s_4168ee688cda0f::t_9ce8af2860b9a8 209
+  s_4168ee688cda0f::t_ac622d6a50e5cc 219-223
+  s_4168ee688cda0f::t_6a68e52f931c64 213-218
+src/blocks/SplitContent.ts
+  s_4168ee688cda0f::t_5c4e06d46cf75f 10
+  s_4168ee688cda0f::t_c02f73d643b738 32-49
+src/blocks/Pain.ts
+  s_4168ee688cda0f::t_725f6a91e2bc91 1-32
+src/blocks/Steps.ts
+  s_4168ee688cda0f::t_0fb10a889d02fd 1-33
+src/blocks/index.ts
+  s_4168ee688cda0f::t_10ec07f1ebcc18 17-18
+  s_4168ee688cda0f::t_1cf681d1fbb217 45-51
+  s_4168ee688cda0f::t_214967c10aa204 43-44
+  s_4168ee688cda0f::t_8067456a91ed15 19-25
+src/blocks/SavingsCalculator.ts
+  s_4168ee688cda0f::t_76596e8e27ac11 1-32
+src/blocks/ResourceCards.ts
+  s_4168ee688cda0f::t_961a272fa48416 1-25
+src/blocks/Testimonials.ts
+  s_4168ee688cda0f::t_2a001211c3937a 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "ea801d7d34c2b540417ca11b04e01b9b30545804",
+  "prompts": {},
+  "sessions": {
+    "s_4168ee688cda0f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8331cd47-455d-4705-b306-022aa60aeee6",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
