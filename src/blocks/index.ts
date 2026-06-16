@@ -14,6 +14,15 @@ import { SplitContentBlock } from './SplitContent.ts'
 import { VideoEmbedBlock } from './VideoEmbed.ts'
 import { NewsletterBlock } from './Newsletter.ts'
 import { BlogListBlock } from './BlogList.ts'
+import { PainBlock } from './Pain.ts'
+import { StepsBlock } from './Steps.ts'
+import { DashboardPanelBlock } from './DashboardPanel.ts'
+import { SolutionsListBlock } from './SolutionsList.ts'
+import { IndustriesPillsBlock } from './IndustriesPills.ts'
+import { BenefitsGridBlock } from './BenefitsGrid.ts'
+import { CaseStudiesBlock } from './CaseStudies.ts'
+import { SavingsCalculatorBlock } from './SavingsCalculator.ts'
+import { ResourceCardsBlock } from './ResourceCards.ts'
 
 export const allBlocks: Block[] = [
   HeroBlock,
@@ -31,4 +40,13 @@ export const allBlocks: Block[] = [
   VideoEmbedBlock,
   NewsletterBlock,
   BlogListBlock,
+  PainBlock,
+  StepsBlock,
+  DashboardPanelBlock,
+  SolutionsListBlock,
+  IndustriesPillsBlock,
+  BenefitsGridBlock,
+  CaseStudiesBlock,
+  SavingsCalculatorBlock,
+  ResourceCardsBlock,
 ]

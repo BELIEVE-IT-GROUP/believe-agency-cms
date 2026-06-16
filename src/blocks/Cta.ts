@@ -7,6 +7,7 @@ export const CtaBlock: Block = {
   fields: [
     flowbiteTemplateField('cta'),
     flowbiteAppearanceField(),
+    { name: 'eyebrow', type: 'text', label: 'Eyebrow (texto superior pequeño)' },
     { name: 'headline', type: 'text', required: true, label: 'Titular' },
     { name: 'subheadline', type: 'textarea', label: 'Subtítulo' },
     {
@@ -31,5 +32,28 @@ export const CtaBlock: Block = {
       ],
     },
     { name: 'backgroundImage', type: 'upload', relationTo: 'media', label: 'Imagen de fondo (opcional)' },
+    { name: 'formEnabled', type: 'checkbox', label: 'Habilitar formulario' },
+    {
+      name: 'formFields',
+      type: 'array',
+      label: 'Campos del formulario',
+      fields: [
+        { name: 'fieldName', type: 'text', label: 'Nombre del campo' },
+        { name: 'label', type: 'text', label: 'Etiqueta' },
+        {
+          name: 'type',
+          type: 'select',
+          options: [
+            { label: 'Texto', value: 'text' },
+            { label: 'Email', value: 'email' },
+            { label: 'Teléfono', value: 'tel' },
+            { label: 'Área de texto', value: 'textarea' },
+          ],
+        },
+        { name: 'required', type: 'checkbox', label: 'Requerido' },
+        { name: 'placeholder', type: 'text', label: 'Placeholder' },
+      ],
+    },
+    { name: 'formDestinationEmail', type: 'email', label: 'Email destino del formulario' },
   ],
 }

@@ -29,6 +29,7 @@ export const TestimonialsBlock: Block = {
         { name: 'company', type: 'text', label: 'Empresa' },
         { name: 'photo', type: 'upload', relationTo: 'media', label: 'Foto' },
         { name: 'quote', type: 'textarea', required: true, label: 'Testimonio' },
+        { name: 'metric', type: 'text', label: 'Métrica destacada (ej: +40% ventas)' },
         { name: 'rating', type: 'number', min: 1, max: 5, defaultValue: 5, label: 'Rating (1-5)' },
       ],
     },

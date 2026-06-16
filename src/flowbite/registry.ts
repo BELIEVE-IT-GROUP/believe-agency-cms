@@ -14,6 +14,15 @@ export type FlowbiteBlockType =
   | 'video-embed'
   | 'newsletter'
   | 'blog-list'
+  | 'pain'
+  | 'steps'
+  | 'dashboard-panel'
+  | 'solutions-list'
+  | 'industries-pills'
+  | 'benefits-grid'
+  | 'case-studies'
+  | 'savings-calculator'
+  | 'resource-cards'
   | 'header'
   | 'footer'
 
@@ -197,14 +206,21 @@ export function getFlowbiteTemplates(blockType: FlowbiteBlockType) {
 }
 
 export function getDefaultFlowbiteTemplateId(blockType: FlowbiteBlockType) {
-  return getFlowbiteTemplates(blockType)[0]?.id
+  return getFlowbiteTemplates(blockType)[0]?.id ?? `${blockType}.custom`
 }
 
 export function getFlowbiteTemplateOptions(blockType: FlowbiteBlockType) {
-  return getFlowbiteTemplates(blockType).map((template) => ({
-    label: template.label,
-    value: template.id,
-  }))
+  const options: { label: string; value: string }[] = getFlowbiteTemplates(blockType).map(
+    (template) => ({
+      label: template.label,
+      value: template.id,
+    }),
+  )
+  options.push({
+    label: 'Custom (clase mundial)',
+    value: `${blockType}.custom`,
+  })
+  return options
 }
 
 export {

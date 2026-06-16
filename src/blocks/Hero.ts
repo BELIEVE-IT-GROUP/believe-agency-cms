@@ -18,8 +18,19 @@ export const HeroBlock: Block = {
         { label: 'Imagen de fondo', value: 'image-bg' },
       ],
     },
+    { name: 'eyebrow', type: 'text', label: 'Eyebrow (texto superior pequeño)' },
     { name: 'headline', type: 'text', required: true, label: 'Titular principal' },
     { name: 'subheadline', type: 'textarea', label: 'Subtítulo' },
+    {
+      name: 'stats',
+      type: 'array',
+      label: 'Estadísticas destacadas',
+      maxRows: 4,
+      fields: [
+        { name: 'value', type: 'text', label: 'Valor' },
+        { name: 'label', type: 'text', label: 'Etiqueta' },
+      ],
+    },
     {
       name: 'ctas',
       type: 'array',

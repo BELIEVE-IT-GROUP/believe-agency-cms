@@ -10,6 +10,7 @@ import { Users } from './collections/Users.ts'
 import { Tenants } from './collections/Tenants.ts'
 import { Media } from './collections/Media.ts'
 import { Pages } from './collections/Pages.ts'
+import { Landings } from './collections/Landings.ts'
 import { Posts } from './collections/Posts.ts'
 import { Categories } from './collections/Categories.ts'
 import { Settings } from './collections/Settings.ts'
@@ -54,7 +55,7 @@ const createPayloadConfig = async () => {
     },
   },
 
-  collections: [Users, Tenants, Media, Pages, Posts, Categories, Settings],
+  collections: [Users, Tenants, Media, Pages, Landings, Posts, Categories, Settings],
 
   editor: lexicalEditor({}),
 
@@ -106,6 +107,7 @@ const createPayloadConfig = async () => {
     multiTenantPlugin({
       collections: {
         pages: {},
+        landings: {},
         posts: {},
         media: {},
         categories: {},
