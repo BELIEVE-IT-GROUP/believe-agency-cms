@@ -1,0 +1,19 @@
+src/collections/Landings.ts
+  s_4168ee688cda0f::t_e69420012b8361 105-110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.7",
+  "base_commit_sha": "da95b1bd720310818eff455c36223fb5a8fd7320",
+  "prompts": {},
+  "sessions": {
+    "s_4168ee688cda0f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8331cd47-455d-4705-b306-022aa60aeee6",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Jbelieve <jorge@believe-global.com>"
+    }
+  }
+}
